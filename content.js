@@ -214,7 +214,7 @@ window.SITE = {
         { id: "kids10", tag: "Children 10+", name: "Kids’ lesson", text: "School support and confident speaking for older children.", length: "40 min", price: "£17" },
         { id: "gcse", tag: "Exam", name: "GCSE preparation", text: "Exam technique, reading and writing tasks, and practice with past papers.", length: "55 min", price: "£25" },
         { id: "ielts", tag: "Exam", name: "IELTS preparation", text: "All four skills, timed practice and strategies for a higher band score.", length: "55 min", price: "£25" },
-        { id: "essay", tag: "Exam", name: "Essay checking", text: "4 IELTS or GCSE essays a month, with detailed written feedback.", length: "1 month", price: "£30" }
+        { id: "essay", tag: "Exam", name: "Essay checking", text: "4 IELTS or GCSE essays a month, with detailed written feedback.", length: "4 essays / month", price: "£30" }
       ]
     },
 
@@ -432,7 +432,7 @@ window.SITE = {
         { id: "kids10", tag: "Дети от 10 лет", name: "Урок для детей", text: "Помощь со школой и уверенная разговорная речь.", length: "40 мин", price: "£17" },
         { id: "gcse", tag: "Экзамен", name: "Подготовка к GCSE", text: "Техника экзамена, задания на чтение и письмо, практика на реальных вариантах.", length: "55 мин", price: "£25" },
         { id: "ielts", tag: "Экзамен", name: "Подготовка к IELTS", text: "Все четыре навыка, практика на время и стратегии для более высокого балла.", length: "55 мин", price: "£25" },
-        { id: "essay", tag: "Экзамен", name: "Проверка эссе", text: "4 эссе IELTS или GCSE в месяц с подробным письменным разбором.", length: "1 месяц", price: "£30" }
+        { id: "essay", tag: "Экзамен", name: "Проверка эссе", text: "4 эссе IELTS или GCSE в месяц с подробным письменным разбором.", length: "4 эссе в месяц", price: "£30" }
       ]
     },
 
