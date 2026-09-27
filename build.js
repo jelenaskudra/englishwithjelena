@@ -100,7 +100,9 @@ for (const lang of langs) {
     add(`<meta property="og:title" content="${esc(m.title)}">`);
     add(`<meta property="og:description" content="${esc(m.description)}">`);
     add(`<meta property="og:url" content="${url(lang, page.slug)}">`);
-    add(`<meta property="og:image" content="${DOMAIN}/og-image.png">`);
+    add(`<meta property="og:image" content="${DOMAIN}/share.jpg">`);
+    add(`<meta property="og:image:width" content="1200">`);
+    add(`<meta property="og:image:height" content="630">`);
     add(`<meta property="og:locale" content="${lang === "ru" ? "ru_RU" : "en_GB"}">`);
     add(`<meta name="twitter:card" content="summary_large_image">`);
     add(`<link rel="apple-touch-icon" href="${prefix}icon.png">`);
@@ -136,7 +138,7 @@ for (const lang of langs) {
 }
 
 // Static files
-for (const f of ["style.css", "content.js", "site.js", "CNAME", "og-image.png", "icon.png", "jelena.jpg", "jelena.webp"]) {
+for (const f of ["style.css", "content.js", "site.js", "CNAME", "share.jpg", "icon.png", "jelena.jpg", "jelena.webp"]) {
   if (fs.existsSync(path.join(ROOT, f))) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
 }
 
