@@ -25,7 +25,7 @@ window.SITE = {
     // Contact details. Leave "" to hide one.
     email: "hello@englishwithjelena.com",
     whatsapp: "",          // e.g. "+44 7700 900123"
-    telegram: "",          // username without @, e.g. "jelenaskudra"
+    telegram: "jelena_english", // username without @
     instagram: "",         // username without @
 
     // Show the "Lessons & prices" section? true = show, false = hide

@@ -211,7 +211,7 @@
     row.appendChild(bk);
     var msg = L.messageText + code + " (" + score + "/" + Q.length + ")";
     var sendHref = set.whatsapp ? "https://wa.me/" + set.whatsapp.replace(/[^0-9]/g,"") + "?text=" + encodeURIComponent(msg)
-                 : set.telegram ? "https://t.me/" + set.telegram.replace("@","")
+                 : set.telegram ? "https://t.me/" + set.telegram.replace("@","") + "?text=" + encodeURIComponent(msg)
                  : set.email ? "mailto:" + set.email + "?subject=" + encodeURIComponent("English test: " + code) + "&body=" + encodeURIComponent(msg) : "";
     if (sendHref) { var sd = el("a","btn btn-line", esc(L.send)); sd.href = sendHref; if (sendHref.indexOf("http") === 0) { sd.target = "_blank"; sd.rel = "noopener"; } row.appendChild(sd); }
     box.appendChild(row);
