@@ -158,6 +158,15 @@
     });
     fill("pay-notes", T.payment.notes, function(n){ return el("li", null, marked(n)); });
 
+    // floating Telegram button on every page
+    var tgBtn = document.getElementById("tg-float");
+    if (set.telegram) {
+      if (!tgBtn) { tgBtn = el("a", "tg-float"); tgBtn.id = "tg-float"; tgBtn.target = "_blank"; tgBtn.rel = "noopener"; document.body.appendChild(tgBtn); }
+      tgBtn.href = "https://t.me/" + set.telegram.replace("@","");
+      tgBtn.setAttribute("aria-label", "Telegram @" + set.telegram.replace("@",""));
+      tgBtn.innerHTML = '<svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M9.8 15.3l-.4 5.3c.6 0 .8-.2 1.1-.5l2.6-2.5 5.4 4c1 .5 1.7.3 2-.9l3.6-17c.3-1.5-.5-2.1-1.5-1.7L1.4 9.9C0 10.4 0 11.3 1.2 11.6l5.4 1.7L19 5.5c.6-.4 1.1-.2.7.2"/></svg><span>Telegram</span>';
+    }
+
     $("year").textContent = new Date().getFullYear();
   }
   // ---------- level test ----------
