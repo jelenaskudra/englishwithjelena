@@ -24,7 +24,7 @@
     if (!T.hero) T.hero = { facts: [] };
     document.documentElement.lang = lang;
     var page = document.body.getAttribute("data-page") || "home";
-    document.title = page === "reviews" ? T.reviewsPage.metaTitle : page === "payment" ? T.payment.metaTitle : T.meta.title;
+    document.title = page === "reviews" ? T.reviewsPage.metaTitle : page === "payment" ? T.payment.metaTitle : (T.pages && T.pages[page]) ? T.pages[page].metaTitle : T.meta.title;
     var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute("content", T.meta.description);
 
     document.querySelectorAll("[data-t]").forEach(function(n){
@@ -35,6 +35,7 @@
 
     fill("facts", T.hero.facts, function(f){ return el("li", null, esc(f)); });
     fill("about-text", T.about.paragraphs, function(p){ return el("p", null, marked(p)); });
+    $("about-first").innerHTML = marked((T.about.paragraphs || [""])[0]);
     fill("steps", T.steps.items, function(s){ var li = el("li"); li.appendChild(el("h3", null, esc(s.title))); li.appendChild(el("p", null, marked(s.text))); return li; });
     fill("offer-list", T.offer.items, function(o){ var d = el("div"); d.appendChild(el("h3", null, esc(o.title))); d.appendChild(el("p", null, marked(o.text))); return d; });
     fill("lesson-text", T.lesson.paragraphs, function(p){ return el("p", null, marked(p)); });
@@ -63,9 +64,17 @@
       if (p.tag) d.appendChild(el("span","tag", esc(p.tag)));
       d.appendChild(el("h3", null, esc(p.name)));
       if (p.text) d.appendChild(el("p", null, marked(p.text)));
-      d.appendChild(el("div","foot", '<span class="len">' + esc(p.length || "") + '</span><span class="price">' + esc(p.price || "") + '</span>'));
+      d.appendChild(el("div","foot", '<span class="len">' + esc(p.length || "") + '</span><span class="price">' + esc(p.price || "") + '<small>' + esc(fx(p.price)) + '</small></span>'));
       return d;
     });
+
+    // home: prices strip
+    var nums = (T.prices.items || []).map(function(p){ return num(p.price); }).filter(function(x){ return x > 0; });
+    if (nums.length) {
+      var mn = Math.min.apply(null, nums);
+      $("price-from").innerHTML = "£" + mn + " <small>" + esc(fx("£" + mn)) + "</small>";
+    }
+    fill("price-mini", T.prices.items, function(p){ return el("li", null, "<span>" + esc(p.name) + (p.tag && !/exam|экзам/i.test(p.tag) ? " · " + esc(p.tag) : "") + "</span><b>" + esc(p.price || "") + "</b>"); });
 
     // booking
     var has = !!(set.bookingLink && set.bookingLink.trim());
@@ -125,7 +134,7 @@
       var li = el("li");
       var info = el("div", "pay-info", "<b>" + esc(p.name) + "</b><span>" + esc(p.tag || "") + (p.length ? " · " + esc(p.length) : "") + "</span>");
       li.appendChild(info);
-      li.appendChild(el("span", "pay-price", esc(p.price || "")));
+      li.appendChild(el("span", "pay-price", esc(p.price || "") + "<small>" + esc(fx(p.price)) + "</small>"));
       var link = (links[p.id] || "").trim();
       if (link) {
         anyLink = true;
@@ -197,7 +206,7 @@
     box.appendChild(el("p","note", esc(L.resultNote)));
     var row = el("div","row");
     var bk = el("a","btn btn-hl", esc(L.book));
-    if (set.bookingLink) { bk.href = set.bookingLink; bk.target = "_blank"; bk.rel = "noopener"; } else { bk.href = "#book"; }
+    bk.href = "book.html";
     row.appendChild(bk);
     var msg = L.messageText + code + " (" + score + "/" + Q.length + ")";
     var sendHref = set.whatsapp ? "https://wa.me/" + set.whatsapp.replace(/[^0-9]/g,"") + "?text=" + encodeURIComponent(msg)
@@ -210,6 +219,15 @@
     box.appendChild(ag);
   }
 
+  function num(price){ var m = String(price || "").match(/[0-9]+(\.[0-9]+)?/); return m ? parseFloat(m[0]) : 0; }
+  function fx(price){
+    var n = num(price), r = set.rates || {};
+    if (!n || !/£/.test(String(price))) return "";
+    var out = [];
+    if (r.EUR) out.push("€" + Math.round(n * r.EUR));
+    if (r.USD) out.push("$" + Math.round(n * r.USD));
+    return out.length ? "≈ " + out.join(" · ") : "";
+  }
   function copyBtn(text, node, T){
     var b = el("button", "copy", esc(T.book.copy)); b.type = "button";
     b.addEventListener("click", function(){

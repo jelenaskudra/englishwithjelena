@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Caveat:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap&subset=cyrillic">
 <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="reviews">
+<body data-page="prices">
 
 <header>
   <div class="wrap bar">
@@ -34,24 +34,35 @@
 <main id="top">
   <section class="page-head">
     <div class="wrap">
-      <h1 data-t="reviewsPage.title"></h1>
-      <p class="lead" data-t="reviewsPage.text"></p>
+      <h1 data-t="pages.prices.title"></h1>
+      <p class="lead" data-t="pages.prices.lead"></p>
     </div>
   </section>
 
-  <section class="page-body">
+  <section id="prices" class="page-body" hidden>
     <div class="wrap">
-      <div class="reviews" id="reviews-list"></div>
+            <div class="offers" id="price-list"></div>
     </div>
   </section>
 
-  <section id="leave" class="alt">
-    <div class="wrap narrow">
-      <div class="sec-head"><h2 data-t="reviewsPage.formTitle"></h2><p data-t="reviewsPage.formText"></p></div>
-      <div id="feedback-embed" hidden>
-        <iframe id="feedback-frame" title="Review form" loading="lazy"></iframe>
-      </div>
-      <p id="feedback-soon"><span data-t="reviewsPage.formSoon"></span> <a id="feedback-email" href="#"></a></p>
+  <section id="levels" class="alt">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-t="levels.title"></h2><p data-t="levels.text"></p></div>
+      <div class="levels" id="levels-list"></div>
+    </div>
+  </section>
+
+  <section id="start" class="alt">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-t="steps.title"></h2></div>
+      <ol class="steps" id="steps"></ol>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap after-pay">
+      <div><h2 class="h-sm" data-t="book.title"></h2><p data-t="book.text"></p></div>
+      <div class="cta"><a class="btn btn-hl" href="book.html" data-t="hero.bookButton"></a><a class="btn btn-line" href="payment.html" data-t="nav.payment"></a></div>
     </div>
   </section>
 </main>

@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Caveat:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap&subset=cyrillic">
 <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="reviews">
+<body data-page="about">
 
 <header>
   <div class="wrap bar">
@@ -34,24 +34,62 @@
 <main id="top">
   <section class="page-head">
     <div class="wrap">
-      <h1 data-t="reviewsPage.title"></h1>
-      <p class="lead" data-t="reviewsPage.text"></p>
+      <h1 data-t="pages.about.title"></h1>
+      <p class="lead" data-t="pages.about.lead"></p>
     </div>
   </section>
 
-  <section class="page-body">
-    <div class="wrap">
-      <div class="reviews" id="reviews-list"></div>
-    </div>
-  </section>
-
-  <section id="leave" class="alt">
-    <div class="wrap narrow">
-      <div class="sec-head"><h2 data-t="reviewsPage.formTitle"></h2><p data-t="reviewsPage.formText"></p></div>
-      <div id="feedback-embed" hidden>
-        <iframe id="feedback-frame" title="Review form" loading="lazy"></iframe>
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2 class="sr-only" data-t="about.title"></h2>
+        <span class="note" data-t="about.note"></span>
       </div>
-      <p id="feedback-soon"><span data-t="reviewsPage.formSoon"></span> <a id="feedback-email" href="#"></a></p>
+      <div class="about-text" id="about-text"></div>
+    </div>
+  </section>
+
+  <section id="lesson" class="alt">
+    <div class="wrap lesson-grid">
+      <div class="lesson-main">
+        <h2 data-t="lesson.title"></h2>
+        <div class="lesson-text" id="lesson-text"></div>
+        <h3 data-t="lesson.flexTitle"></h3>
+        <p class="muted-p" data-t="lesson.flex"></p>
+      </div>
+      <aside class="lesson-side">
+        <div class="expect">
+          <p class="eyebrow" data-t="lesson.expectTitle"></p>
+          <ul id="expect-list"></ul>
+        </div>
+        <figure class="example">
+          <p class="eyebrow" data-t="lesson.exampleLabel"></p>
+          <blockquote data-t="lesson.example"></blockquote>
+        </figure>
+      </aside>
+    </div>
+  </section>
+
+  <section id="languages">
+    <div class="wrap duo">
+      <div>
+        <h2 data-t="languages.title"></h2>
+        <p class="lang-text" data-t="languages.text"></p>
+        <ul class="chips" id="chips"></ul>
+      </div>
+      <article class="card">
+        <p class="eyebrow" data-t="word.label"></p>
+        <p class="word" data-t="word.word"></p>
+        <p class="origin" data-t="word.origin"></p>
+        <p class="story" data-t="word.story"></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap after-pay">
+      <div><h2 class="h-sm" data-t="book.title"></h2><p data-t="book.text"></p></div>
+      <a class="btn btn-hl" href="book.html" data-t="hero.bookButton"></a>
     </div>
   </section>
 </main>

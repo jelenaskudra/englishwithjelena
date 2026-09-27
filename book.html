@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Caveat:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap&subset=cyrillic">
 <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="reviews">
+<body data-page="book">
 
 <header>
   <div class="wrap bar">
@@ -34,24 +34,32 @@
 <main id="top">
   <section class="page-head">
     <div class="wrap">
-      <h1 data-t="reviewsPage.title"></h1>
-      <p class="lead" data-t="reviewsPage.text"></p>
+      <h1 data-t="pages.book.title"></h1>
+      <p class="lead" data-t="pages.book.lead"></p>
     </div>
   </section>
 
-  <section class="page-body">
-    <div class="wrap">
-      <div class="reviews" id="reviews-list"></div>
-    </div>
-  </section>
-
-  <section id="leave" class="alt">
-    <div class="wrap narrow">
-      <div class="sec-head"><h2 data-t="reviewsPage.formTitle"></h2><p data-t="reviewsPage.formText"></p></div>
-      <div id="feedback-embed" hidden>
-        <iframe id="feedback-frame" title="Review form" loading="lazy"></iframe>
+  <section id="book" class="band">
+    <div class="wrap book-grid">
+      <div>
+        <div class="sec-head"><h2 data-t="book.title"></h2><p data-t="book.text"></p></div>
+        <a class="btn btn-hl" id="calendar-btn" href="#book" target="_blank" rel="noopener" data-t="book.button"></a>
+        <p class="soon" id="soon" data-t="book.soon" hidden></p>
       </div>
-      <p id="feedback-soon"><span data-t="reviewsPage.formSoon"></span> <a id="feedback-email" href="#"></a></p>
+      <div id="contact-box">
+        <h3 data-t="book.contactTitle"></h3>
+        <ul class="contacts" id="contacts"></ul>
+      </div>
+    </div>
+    <div class="wrap" id="embed-box" hidden>
+      <iframe id="booking-frame" title="Booking calendar" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section id="start">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-t="steps.title"></h2></div>
+      <ol class="steps" id="steps"></ol>
     </div>
   </section>
 </main>

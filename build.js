@@ -22,6 +22,10 @@ const SITE = sandbox.window.SITE;
 
 const pages = [
   { tpl: "index.html", slug: "", meta: (T) => T.meta },
+  { tpl: "about.html", slug: "about", meta: (T) => ({ title: T.pages.about.metaTitle, description: T.pages.about.description }) },
+  { tpl: "prices.html", slug: "prices", meta: (T) => ({ title: T.pages.prices.metaTitle, description: T.pages.prices.description }) },
+  { tpl: "test.html", slug: "test", meta: (T) => ({ title: T.pages.test.metaTitle, description: T.pages.test.description }) },
+  { tpl: "book.html", slug: "book", meta: (T) => ({ title: T.pages.book.metaTitle, description: T.pages.book.description }) },
   { tpl: "reviews.html", slug: "reviews", meta: (T) => ({ title: T.reviewsPage.metaTitle, description: T.reviewsPage.text }) },
   { tpl: "payment.html", slug: "payment", meta: (T) => ({ title: T.payment.metaTitle, description: T.payment.text }) }
 ];
@@ -113,7 +117,7 @@ for (const lang of langs) {
 
     // Pretty links (/reviews instead of reviews.html) and asset paths for /en/
     let html = dom.serialize();
-    html = html.replace(/href="reviews\.html"/g, 'href="reviews"').replace(/href="payment\.html"/g, 'href="payment"');
+    html = html.replace(/href="index\.html"/g, 'href="./"').replace(/href="([a-z]+)\.html(#[a-z-]+)?"/g, 'href="$1$2"');
     // Cache-busting: browsers always fetch the newest text/design after a change
     const v = Date.now().toString(36);
     html = html.replace(/(href|src)="(style\.css|content\.js|site\.js)"/g, '$1="$2?v=' + v + '"');

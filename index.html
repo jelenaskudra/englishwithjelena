@@ -15,19 +15,19 @@
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="#top">Jelena Skudra<span>.</span></a>
+    <a class="logo" href="index.html">Jelena Skudra<span>.</span></a>
     <nav class="links" aria-label="Main">
-      <a href="#about" data-t="nav.about">About</a>
-      <a href="#prices" class="price-nav" data-t="nav.prices">Prices</a>
+      <a href="about.html" data-t="nav.about">About</a>
+      <a href="prices.html" class="price-nav" data-t="nav.prices">Prices</a>
       <a href="reviews.html" data-t="nav.reviews">Reviews</a>
+      <a href="test.html" class="test-nav" data-t="nav.test">Free test</a>
       <a href="payment.html" data-t="nav.payment">Payment</a>
-      <a href="#test" class="test-nav" data-t="test.nav">Free test</a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" id="lang-ru" data-lang="ru" aria-pressed="false">RU</button>
       <button type="button" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
     </div>
-    <a class="btn btn-hl btn-sm book-link" href="#book" data-t="nav.book">Book a lesson</a>
+    <a class="btn btn-hl btn-sm" href="book.html" data-t="nav.book">Book a lesson</a>
   </div>
 </header>
 
@@ -40,8 +40,8 @@
         <p class="tagline" data-t="hero.tagline"></p>
         <p class="lead" data-t="hero.text"></p>
         <div class="cta">
-          <a class="btn btn-hl book-link" href="#book" data-t="hero.bookButton"></a>
-          <a class="btn btn-line" href="#lesson" data-t="hero.moreButton"></a>
+          <a class="btn btn-hl" href="book.html" data-t="hero.bookButton"></a>
+          <a class="btn btn-line" href="about.html#lesson" data-t="hero.moreButton"></a>
         </div>
         <ul class="facts" id="facts"></ul>
       </div>
@@ -100,48 +100,36 @@
     </div>
   </div>
 
-  <section id="about">
-    <div class="wrap about">
-      <div>
-        <h2 data-t="about.title"></h2>
-        <span class="note" data-t="about.note"></span>
-      </div>
-      <div class="about-text" id="about-text"></div>
-    </div>
-  </section>
 
   <section id="offer" class="alt">
     <div class="wrap">
       <div class="sec-head"><h2 data-t="offer.title"></h2></div>
       <div class="offer-grid" id="offer-list"></div>
+      <p class="more-link"><a href="prices.html" data-t="home.offerMore"></a></p>
     </div>
   </section>
 
-  <section id="lesson">
-    <div class="wrap lesson-grid">
-      <div class="lesson-main">
-        <h2 data-t="lesson.title"></h2>
-        <div class="lesson-text" id="lesson-text"></div>
-        <h3 data-t="lesson.flexTitle"></h3>
-        <p class="muted-p" data-t="lesson.flex"></p>
+  <section id="about-short">
+    <div class="wrap about">
+      <div>
+        <h2 data-t="about.title"></h2>
+        <span class="note" data-t="about.note"></span>
       </div>
-      <aside class="lesson-side">
-        <div class="expect">
-          <p class="eyebrow" data-t="lesson.expectTitle"></p>
-          <ul id="expect-list"></ul>
-        </div>
-        <figure class="example">
-          <p class="eyebrow" data-t="lesson.exampleLabel"></p>
-          <blockquote data-t="lesson.example"></blockquote>
-        </figure>
-      </aside>
+      <div class="about-text">
+        <p id="about-first"></p>
+        <p class="more-link"><a href="about.html" data-t="home.aboutMore"></a></p>
+      </div>
     </div>
   </section>
 
-  <section id="prices" class="alt" hidden>
-    <div class="wrap">
-      <div class="sec-head"><h2 data-t="prices.title"></h2><p data-t="prices.text"></p></div>
-      <div class="offers" id="price-list"></div>
+  <section id="price-strip" class="alt">
+    <div class="wrap strip">
+      <div>
+        <p class="eyebrow" data-t="home.pricesFrom"></p>
+        <p class="strip-price" id="price-from"></p>
+      </div>
+      <ul class="strip-list" id="price-mini"></ul>
+      <a class="btn btn-line" href="prices.html" data-t="home.pricesMore"></a>
     </div>
   </section>
 
@@ -153,44 +141,13 @@
     </div>
   </section>
 
-  <section id="start" class="alt">
-    <div class="wrap">
-      <div class="sec-head"><h2 data-t="steps.title"></h2></div>
-      <ol class="steps" id="steps"></ol>
-    </div>
-  </section>
-
-  <section id="levels">
-    <div class="wrap">
-      <div class="sec-head"><h2 data-t="levels.title"></h2><p data-t="levels.text"></p></div>
-      <div class="levels" id="levels-list"></div>
-    </div>
-  </section>
-
-  <section id="test" class="alt">
-    <div class="wrap test-grid">
-      <div class="sec-head">
-        <p class="eyebrow" data-t="test.eyebrow"></p>
-        <h2 data-t="test.title"></h2>
-        <p data-t="test.text"></p>
+  <section id="test-strip" class="alt">
+    <div class="wrap strip">
+      <div class="strip-text">
+        <h2 data-t="home.testTitle"></h2>
+        <p data-t="home.testText"></p>
       </div>
-      <div class="quiz" id="quiz" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <section id="languages">
-    <div class="wrap duo">
-      <div>
-        <h2 data-t="languages.title"></h2>
-        <p class="lang-text" data-t="languages.text"></p>
-        <ul class="chips" id="chips"></ul>
-      </div>
-      <article class="card">
-        <p class="eyebrow" data-t="word.label"></p>
-        <p class="word" data-t="word.word"></p>
-        <p class="origin" data-t="word.origin"></p>
-        <p class="story" data-t="word.story"></p>
-      </article>
+      <a class="btn btn-hl" href="test.html" data-t="home.testButton"></a>
     </div>
   </section>
 
@@ -205,16 +162,12 @@
     <div class="wrap book-grid">
       <div>
         <div class="sec-head"><h2 data-t="book.title"></h2><p data-t="book.text"></p></div>
-        <a class="btn btn-hl" id="calendar-btn" href="#book" target="_blank" rel="noopener" data-t="book.button"></a>
-        <p class="soon" id="soon" data-t="book.soon" hidden></p>
+        <a class="btn btn-hl" href="book.html" data-t="home.bookButton"></a>
       </div>
       <div id="contact-box">
         <h3 data-t="book.contactTitle"></h3>
         <ul class="contacts" id="contacts"></ul>
       </div>
-    </div>
-    <div class="wrap" id="embed-box" hidden>
-      <iframe id="booking-frame" title="Booking calendar" loading="lazy"></iframe>
     </div>
   </section>
 </main>
