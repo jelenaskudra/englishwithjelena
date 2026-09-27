@@ -222,7 +222,8 @@
     var sendHref = set.whatsapp ? "https://wa.me/" + set.whatsapp.replace(/[^0-9]/g,"") + "?text=" + encodeURIComponent(msg)
                  : set.telegram ? "https://t.me/" + set.telegram.replace("@","") + "?text=" + encodeURIComponent(msg)
                  : set.email ? "mailto:" + set.email + "?subject=" + encodeURIComponent("English test: " + code) + "&body=" + encodeURIComponent(msg) : "";
-    if (sendHref) { var sd = el("a","btn btn-line", esc(L.send)); sd.href = sendHref; if (sendHref.indexOf("http") === 0) { sd.target = "_blank"; sd.rel = "noopener"; } row.appendChild(sd); }
+    var viaTg = !set.whatsapp && !!set.telegram;
+    if (sendHref) { var sd = el("a", viaTg ? "btn btn-tg" : "btn btn-line", (viaTg ? '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M9.8 15.3l-.4 5.3c.6 0 .8-.2 1.1-.5l2.6-2.5 5.4 4c1 .5 1.7.3 2-.9l3.6-17c.3-1.5-.5-2.1-1.5-1.7L1.4 9.9C0 10.4 0 11.3 1.2 11.6l5.4 1.7L19 5.5c.6-.4 1.1-.2.7.2"/></svg>' : "") + esc(L.send) + (viaTg ? (lang === "ru" ? " в Telegram" : " on Telegram") : "")); sd.href = sendHref; if (sendHref.indexOf("http") === 0) { sd.target = "_blank"; sd.rel = "noopener"; } row.appendChild(sd); }
     box.appendChild(row);
     var ag = el("button","opt", "↺ " + esc(L.again)); ag.type = "button"; ag.style.alignSelf = "flex-start";
     ag.addEventListener("click", function(){ quiz.step = 0; quiz.picks = []; drawQuiz(); });

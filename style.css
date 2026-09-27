@@ -307,3 +307,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .tg-float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;align-items:center;gap:8px;padding:12px 18px 12px 14px;border-radius:999px;background:#2AABEE;color:#fff;font-weight:700;text-decoration:none;box-shadow:0 10px 24px -8px rgba(0,0,0,.35);transition:transform .15s ease}
 .tg-float:hover{transform:translateY(-2px)}
 @media (max-width:560px){ .tg-float span{display:none} .tg-float{padding:14px} }
+
+.btn-tg{background:#2AABEE;color:#fff;box-shadow:0 3px 0 #1B86BD}
+.btn-tg:hover{transform:translateY(-1px);box-shadow:0 4px 0 #1B86BD}
