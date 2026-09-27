@@ -40,6 +40,8 @@ window.SITE = {
     // between the quotes). Empty = no card button for that lesson.
     payLinks: {
       adult: "",
+      pack5: "",
+      pack10: "",
       kids5: "",
       kids10: "",
       gcse: "",
@@ -206,6 +208,8 @@ window.SITE = {
       // Each card: id (don’t change; links it to payLinks), tag, name, text, length, price.
       items: [
         { id: "adult", tag: "Adults", name: "English lesson", text: "Speaking, grammar and vocabulary built around your interests and goals.", length: "50 min", price: "£20" },
+        { id: "pack5", tag: "Adults · pack", name: "5 lessons", text: "Five 50-minute lessons. £19 per lesson: you save £5.", length: "5 × 50 min", price: "£95" },
+        { id: "pack10", tag: "Adults · pack", name: "10 lessons", text: "Ten 50-minute lessons. £17 per lesson: you save £30.", length: "10 × 50 min", price: "£170" },
         { id: "kids5", tag: "Children 5–10", name: "Kids’ lesson", text: "Playful lessons with stories, games and songs.", length: "30 min", price: "£15" },
         { id: "kids10", tag: "Children 10+", name: "Kids’ lesson", text: "School support and confident speaking for older children.", length: "40 min", price: "£17" },
         { id: "gcse", tag: "Exam", name: "GCSE preparation", text: "Exam technique, reading and writing tasks, and practice with past papers.", length: "55 min", price: "£25" },
@@ -238,7 +242,7 @@ window.SITE = {
     faq: {
       title: "Questions and answers",
       items: [
-        { q: "How much does a lesson cost?", a: "An English lesson for adults (50 min) is £20. Lessons for children are £15 for ages 5–10 (30 min) and £17 for 10+ (40 min). GCSE and IELTS preparation (55 min) is £25. Essay checking is £30 a month for 4 essays." },
+        { q: "How much does a lesson cost?", a: "An English lesson for adults (50 min) is £20, or £95 for 5 lessons and £170 for 10. Lessons for children are £15 for ages 5–10 (30 min) and £17 for 10+ (40 min). GCSE and IELTS preparation (55 min) is £25. Essay checking is £30 a month for 4 essays." },
         { q: "How do online lessons work?", a: "Lessons take place on Google Meet. When you book a time in my calendar, you get a confirmation email with the video link and a reminder." },
         { q: "Can I study with you if I live outside the UK?", a: "Yes. Lessons are online, so you can join from any country: Latvia, Ukraine, Russia, Spain or anywhere else. If you’re paying from Russia, please write to me first, as Russian bank cards don’t work with my payment methods." },
         { q: "Do you teach children?", a: "Yes, from age 5. Lessons for ages 5–10 are 30 minutes and full of stories, games and songs; for 10+ they’re 40 minutes. For older children I also help with school English and GCSE." },
@@ -422,6 +426,8 @@ window.SITE = {
       text: "Все занятия проходят онлайн. Цена указана за один урок, если не написано иначе.",
       items: [
         { id: "adult", tag: "Взрослые", name: "Урок английского", text: "Разговор, грамматика и лексика — вокруг ваших интересов и целей.", length: "50 мин", price: "£20" },
+        { id: "pack5", tag: "Взрослые · пакет", name: "5 уроков", text: "Пять уроков по 50 минут. £19 за урок — экономия £5.", length: "5 × 50 мин", price: "£95" },
+        { id: "pack10", tag: "Взрослые · пакет", name: "10 уроков", text: "Десять уроков по 50 минут. £17 за урок — экономия £30.", length: "10 × 50 мин", price: "£170" },
         { id: "kids5", tag: "Дети 5–10 лет", name: "Урок для детей", text: "Игровые уроки с историями, играми и песнями.", length: "30 мин", price: "£15" },
         { id: "kids10", tag: "Дети от 10 лет", name: "Урок для детей", text: "Помощь со школой и уверенная разговорная речь.", length: "40 мин", price: "£17" },
         { id: "gcse", tag: "Экзамен", name: "Подготовка к GCSE", text: "Техника экзамена, задания на чтение и письмо, практика на реальных вариантах.", length: "55 мин", price: "£25" },
@@ -454,7 +460,7 @@ window.SITE = {
     faq: {
       title: "Вопросы и ответы",
       items: [
-        { q: "Сколько стоит урок английского?", a: "Урок для взрослых (50 минут) — £20. Уроки для детей: £15 для 5–10 лет (30 минут) и £17 для детей от 10 лет (40 минут). Подготовка к GCSE и IELTS (55 минут) — £25. Проверка эссе — £30 в месяц за 4 эссе." },
+        { q: "Сколько стоит урок английского?", a: "Урок для взрослых (50 минут) — £20, пакет из 5 уроков — £95, из 10 уроков — £170. Уроки для детей: £15 для 5–10 лет (30 минут) и £17 для детей от 10 лет (40 минут). Подготовка к GCSE и IELTS (55 минут) — £25. Проверка эссе — £30 в месяц за 4 эссе." },
         { q: "Как проходят онлайн-уроки?", a: "Занятия проходят в Google Meet. После записи в моём календаре вам придёт письмо с подтверждением, ссылкой на видеозвонок и напоминанием." },
         { q: "Можно ли заниматься, если я живу не в Англии?", a: "Да. Уроки онлайн, поэтому заниматься можно из любой страны: Латвии, Украины, России, Испании и других. Если вы оплачиваете из России, пожалуйста, сначала напишите мне: российские карты не работают с моими способами оплаты." },
         { q: "Вы занимаетесь с детьми?", a: "Да, с 5 лет. Уроки для детей 5–10 лет длятся 30 минут — с историями, играми и песнями, для детей от 10 лет — 40 минут. Детям постарше помогаю со школьным английским и GCSE." },
