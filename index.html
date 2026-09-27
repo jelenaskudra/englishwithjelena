@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jelena Skudra · English teacher</title>
+<meta name="description" content="Online English lessons with Jelena Skudra for children, teens and adults, built around your interests.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316233F'/%3E%3Crect x='14' y='38' width='36' height='10' fill='%23FFD84D'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%23fff' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500&family=Caveat:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap&subset=cyrillic">
+<style>
+:root{
+  --paper:#F5F7FB; --surface:#FFFFFF; --ink:#16233F; --muted:#56617A;
+  --rule:#D8DFEC; --ruled:#E2E8F3; --margin:#C8413B; --hl:#FFD84D; --hl-ink:#16233F;
+  --blue:#7FA6E0; --band:#16233F; --band-ink:#EEF2FA; --band-muted:#AEB9D1;
+  --display:"Alegreya", Georgia, "Times New Roman", serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --hand:"Caveat", "Segoe Print", "Comic Sans MS", cursive;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1628; --surface:#17213A; --ink:#E8EDF7; --muted:#9CA8C0;
+    --rule:#2A3756; --ruled:#1B2641; --margin:#E26A62; --hl:#F4CB45;
+    --blue:#5E86C4; --band:#0A1020; --band-ink:#E8EDF7; --band-muted:#94A1BD;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1628; --surface:#17213A; --ink:#E8EDF7; --muted:#9CA8C0;
+  --rule:#2A3756; --ruled:#1B2641; --margin:#E26A62; --hl:#F4CB45;
+  --blue:#5E86C4; --band:#0A1020; --band-ink:#E8EDF7; --band-muted:#94A1BD;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.12;text-wrap:balance;margin:0}
+h2{font-size:clamp(30px,4vw,42px)}
+h3{font-size:22px}
+p{margin:0}
+mark{background:linear-gradient(transparent 52%, var(--hl) 52%, var(--hl) 92%, transparent 92%);color:inherit;padding:0 .08em}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.hand{font-family:var(--hand);font-weight:700}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.bar{display:flex;align-items:center;gap:20px;min-height:64px}
+.logo{font-family:var(--display);font-weight:700;font-size:22px;text-decoration:none;white-space:nowrap}
+.logo span{color:var(--margin)}
+nav.links{display:flex;gap:22px;margin-left:auto;font-weight:600;font-size:15px}
+nav.links a{text-decoration:none;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--rule);border-radius:999px;padding:3px;background:var(--surface)}
+.lang button{border:0;background:none;font:inherit;font-size:13px;font-weight:700;letter-spacing:.06em;padding:5px 11px;border-radius:999px;color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:700;text-decoration:none;border-radius:12px;padding:14px 22px;cursor:pointer;border:2px solid transparent;transition:transform .15s ease, box-shadow .15s ease}
+.btn-hl{background:var(--hl);color:var(--hl-ink);box-shadow:0 3px 0 color-mix(in srgb,var(--hl) 55%,#000)}
+.btn-hl:hover{transform:translateY(-1px);box-shadow:0 4px 0 color-mix(in srgb,var(--hl) 55%,#000)}
+.btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-sm{padding:9px 16px;font-size:15px;border-radius:10px}
+@media (max-width:860px){ nav.links{display:none} .bar .lang{margin-left:auto} }
+@media (max-width:420px){ .bar .btn-sm{display:none} }
+
+/* hero: exercise-book page */
+.hero{position:relative;overflow:hidden;background:
+  repeating-linear-gradient(to bottom, transparent 0 35px, var(--ruled) 35px 36px);}
+.hero::before{content:"";position:absolute;top:0;bottom:0;left:max(20px, calc(50% - 560px - 28px));width:2px;background:var(--margin);opacity:.55}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:72px 80px}
+.hero h1{font-size:clamp(40px,6.2vw,74px);letter-spacing:-.01em;margin-top:16px}
+.hero .lead{font-size:19px;color:var(--muted);max-width:34em;margin-top:22px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin:32px 0 0;padding:0;list-style:none;font-weight:600;font-size:15px}
+.facts li{display:flex;align-items:center;gap:8px}
+.facts li::before{content:"";width:14px;height:8px;border-left:2.5px solid var(--margin);border-bottom:2.5px solid var(--margin);transform:rotate(-45deg) translateY(-2px)}
+.art{width:100%;height:auto}
+.art .ink{fill:var(--ink)} .art .blue{fill:var(--blue)} .art .red{fill:var(--margin)} .art .hl{fill:var(--hl)}
+.art .page{fill:var(--surface);stroke:var(--rule);stroke-width:1.5}
+.art .line{stroke:var(--ruled);stroke-width:1.5} .art .mline{stroke:var(--margin);stroke-width:1.5;opacity:.7}
+.art .shadow{fill:var(--ink);opacity:.08}
+.art .spine-text{font-family:var(--body);font-weight:700;font-size:11px;letter-spacing:.2em;fill:var(--paper)}
+.art .spine-text.dark{fill:var(--hl-ink)}
+.art .write{font-family:var(--hand);font-weight:700;fill:var(--ink)}
+.art .write.blue-ink{fill:#2E5AAC}
+.art .paper-edge{fill:var(--surface);opacity:.9}
+.art .note-text{font-family:var(--hand);font-weight:700;fill:var(--hl-ink)}
+@media (max-width:860px){ .hero-grid{grid-template-columns:1fr;padding-block:48px 56px} .art-box{max-width:440px} }
+
+section{padding-block:88px}
+.sec-head{display:flex;flex-direction:column;gap:12px;max-width:40em;margin-bottom:44px}
+.sec-head p{color:var(--muted)}
+
+/* about */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
+.about .note{font-family:var(--hand);font-size:28px;color:var(--margin);transform:rotate(-3deg);display:inline-block;margin-top:14px}
+.about-text{display:flex;flex-direction:column;gap:18px;max-width:36em}
+.about-text p:first-child{font-size:20px;color:var(--ink)}
+.about-text p{color:var(--muted)}
+@media (max-width:760px){ .about{grid-template-columns:1fr;gap:24px} }
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:2px solid var(--ink)}
+.steps li::before{content:counter(s) ".";font-family:var(--hand);font-weight:700;font-size:44px;line-height:1;color:var(--margin)}
+.steps p,.who p{color:var(--muted)}
+@media (max-width:760px){ .steps{grid-template-columns:1fr} }
+
+.alt{background:var(--surface);border-block:1px solid var(--rule)}
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.who > div{display:flex;flex-direction:column;gap:10px}
+.who h3{display:flex;align-items:baseline;gap:10px}
+.who .age{font-family:var(--hand);font-size:22px;color:var(--margin);font-weight:700}
+@media (max-width:760px){ .who{grid-template-columns:1fr} }
+
+/* levels staircase */
+.levels{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;align-items:end}
+.lvl{display:flex;flex-direction:column;gap:10px}
+.lvl .step{border-radius:10px 10px 4px 4px;background:var(--blue);display:flex;align-items:flex-start;padding:12px;font-family:var(--display);font-weight:700;font-size:26px;color:#0E1830}
+.lvl:nth-child(n+3) .step{background:color-mix(in srgb,var(--blue) 55%,var(--ink))}
+.lvl:nth-child(n+3) .step{color:#fff}
+.lvl:nth-child(n+5) .step{background:var(--ink);color:var(--paper)}
+.lvl .name{font-size:14px;font-weight:600;color:var(--muted);line-height:1.3}
+@media (max-width:640px){
+  .levels{grid-template-columns:repeat(3,1fr);row-gap:22px}
+}
+
+/* languages + word */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;padding:0;list-style:none}
+.chips li{border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px;font-weight:700;display:flex;gap:8px;align-items:baseline}
+.chips small{font-weight:500;color:var(--muted);font-size:13px}
+.lang-text{color:var(--muted);margin-top:14px}
+.card{position:relative;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:28px 28px 30px;
+  background-image:repeating-linear-gradient(to bottom, transparent 0 31px, var(--ruled) 31px 32px);background-position:0 62px;
+  box-shadow:0 18px 40px -24px rgba(16,26,52,.35);transform:rotate(1deg)}
+.card::before{content:"";position:absolute;left:0;right:0;top:58px;height:2px;background:var(--margin);opacity:.6}
+.card .eyebrow{color:var(--margin)}
+.card .word{font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(34px,4vw,44px);margin-top:26px;line-height:1.1}
+.card .origin{font-family:var(--hand);font-size:22px;font-weight:700;color:#2E5AAC;margin-top:4px;line-height:1.3}
+:root[data-theme="dark"] .card .origin{color:var(--blue)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .card .origin{color:var(--blue)} }
+.card .story{margin-top:14px;color:var(--ink);line-height:2em}
+@media (max-width:760px){ .duo{grid-template-columns:1fr;gap:48px} .card{transform:none} }
+
+/* prices */
+.price-list{margin:0;padding:0;list-style:none;max-width:640px}
+.price-list li{display:flex;justify-content:space-between;gap:16px;padding-block:14px;border-bottom:1px dashed var(--rule);font-weight:600}
+.price-list b{font-variant-numeric:tabular-nums}
+
+/* booking band */
+.band{background:var(--band);color:var(--band-ink)}
+.band .sec-head p{color:var(--band-muted)}
+.book-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.book-grid .btn{font-size:18px;padding:18px 28px}
+.soon{margin-top:16px;color:var(--band-muted);max-width:30em}
+.contacts{display:flex;flex-direction:column;gap:0;margin:16px 0 0;padding:0;list-style:none}
+.contacts li{display:flex;align-items:center;gap:14px;padding-block:12px;border-bottom:1px solid color-mix(in srgb,var(--band-ink) 18%,transparent);flex-wrap:wrap}
+.contacts .k{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--band-muted);width:92px}
+.contacts a{font-weight:600;text-decoration:none;word-break:break-all}
+.contacts a:hover{text-decoration:underline}
+.copy{margin-left:auto;border:1px solid color-mix(in srgb,var(--band-ink) 35%,transparent);background:none;color:var(--band-ink);font:inherit;font-size:13px;font-weight:600;padding:4px 12px;border-radius:8px;cursor:pointer}
+.band h3{color:var(--band-ink)}
+@media (max-width:760px){ .book-grid{grid-template-columns:1fr;gap:40px} }
+
+/* level test */
+.test-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.test-grid .sec-head{margin-bottom:0}
+.quiz{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:28px;box-shadow:0 18px 40px -28px rgba(16,26,52,.4);display:flex;flex-direction:column;gap:18px;min-height:340px}
+.quiz .progress{height:6px;border-radius:99px;background:var(--ruled);overflow:hidden}
+.quiz .progress i{display:block;height:100%;background:var(--margin);transition:width .25s ease}
+.quiz .count{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+.quiz .q{font-family:var(--display);font-size:clamp(22px,2.6vw,28px);font-weight:500;line-height:1.3}
+.quiz .opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.quiz .opt{font:inherit;font-weight:600;text-align:left;padding:13px 16px;border-radius:10px;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer}
+.quiz .opt:hover{border-color:var(--ink)}
+.quiz .opt[aria-pressed="true"]{border-color:var(--ink);background:var(--hl);color:var(--hl-ink)}
+.quiz .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.quiz .btn:disabled{opacity:.45;cursor:default;transform:none}
+.quiz .intro-list{margin:0;padding:0;list-style:none;display:flex;gap:8px;flex-wrap:wrap}
+.quiz .intro-list li{font-family:var(--display);font-weight:700;font-size:20px;padding:6px 12px;border-radius:8px;background:var(--ruled)}
+.quiz .big{font-family:var(--display);font-weight:700;font-size:88px;line-height:1;color:var(--ink)}
+.quiz .big small{font-family:var(--body);font-size:20px;font-weight:600;color:var(--muted);margin-left:12px}
+.quiz .note{color:var(--muted);font-size:15px}
+@media (max-width:760px){ .test-grid{grid-template-columns:1fr;gap:28px} .quiz{padding:20px} }
+@media (max-width:420px){ .quiz .opts{grid-template-columns:1fr} }
+#embed-box{margin-top:48px}
+#booking-frame{width:100%;height:720px;border:0;border-radius:12px;background:#fff}
+
+footer{padding-block:28px;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">Jelena Skudra<span>.</span></a>
+    <nav class="links" aria-label="Main">
+      <a href="#about" data-t="nav.about">About</a>
+      <a href="#lessons" data-t="nav.lessons">Lessons</a>
+      <a href="#levels" data-t="nav.levels">Levels</a>
+      <a href="#test" class="test-nav" data-t="test.nav">Free test</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-ru" data-lang="ru" aria-pressed="false">RU</button>
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
+    </div>
+    <a class="btn btn-hl btn-sm book-link" href="#book" data-t="nav.book">Book a lesson</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow" data-t="hero.eyebrow"></p>
+        <h1 data-t="hero.title" data-mark></h1>
+        <p class="lead" data-t="hero.text"></p>
+        <div class="cta">
+          <a class="btn btn-hl book-link" href="#book" data-t="hero.bookButton"></a>
+          <a class="btn btn-line" href="#lessons" data-t="hero.moreButton"></a>
+        </div>
+        <ul class="facts" id="facts"></ul>
+      </div>
+      <div class="art-box" aria-hidden="true">
+        <svg class="art" viewBox="0 0 460 400" role="img">
+          <ellipse class="shadow" cx="228" cy="362" rx="190" ry="16"/>
+          <!-- bottom book -->
+          <rect class="ink" x="44" y="300" width="340" height="54" rx="5"/>
+          <rect class="paper-edge" x="372" y="306" width="8" height="42" rx="2"/>
+          <rect class="hl" x="84" y="300" width="10" height="54"/>
+          <rect class="hl" x="100" y="300" width="4" height="54"/>
+          <text class="spine-text" x="130" y="332">HISTORY OF ENGLISH</text>
+          <!-- middle book -->
+          <rect class="red" x="74" y="254" width="292" height="46" rx="5"/>
+          <rect class="paper-edge" x="355" y="260" width="7" height="34" rx="2"/>
+          <text class="spine-text" x="104" y="282">STORIES · РАССКАЗЫ</text>
+          <!-- top book -->
+          <rect class="blue" x="58" y="214" width="316" height="40" rx="5"/>
+          <rect class="paper-edge" x="364" y="220" width="7" height="28" rx="2"/>
+          <text class="spine-text dark" x="92" y="239">GRAMMAR IN USE</text>
+          <!-- open notebook -->
+          <g transform="rotate(-5 230 150)">
+            <rect class="shadow" x="92" y="104" width="284" height="116" rx="4"/>
+            <rect class="page" x="84" y="94" width="142" height="116" rx="3"/>
+            <rect class="page" x="226" y="94" width="142" height="116" rx="3"/>
+            <line class="line" x1="94" y1="126" x2="218" y2="126"/><line class="line" x1="94" y1="148" x2="218" y2="148"/>
+            <line class="line" x1="94" y1="170" x2="218" y2="170"/><line class="line" x1="94" y1="192" x2="218" y2="192"/>
+            <line class="line" x1="234" y1="126" x2="360" y2="126"/><line class="line" x1="234" y1="148" x2="360" y2="148"/>
+            <line class="line" x1="234" y1="170" x2="360" y2="170"/><line class="line" x1="234" y1="192" x2="360" y2="192"/>
+            <line class="mline" x1="106" y1="98" x2="106" y2="206"/>
+            <line class="mline" x1="248" y1="98" x2="248" y2="206"/>
+            <text class="write" x="114" y="122" font-size="22">Hello!</text>
+            <text class="write blue-ink" x="114" y="145" font-size="18">Привет!</text>
+            <text class="write" x="114" y="167" font-size="17">Sveiki! Hola!</text>
+            <text class="write blue-ink" x="256" y="122" font-size="18">I have been</text>
+            <text class="write blue-ink" x="256" y="145" font-size="18">learning…</text>
+            <text class="write" x="256" y="167" font-size="17">1066 → today</text>
+            <path d="M256 176 q30 8 70 0" stroke="var(--margin)" stroke-width="2" fill="none"/>
+          </g>
+          <!-- pencil -->
+          <g transform="rotate(-24 360 200)">
+            <rect class="hl" x="300" y="192" width="120" height="14" rx="2"/>
+            <rect class="ink" x="300" y="192" width="120" height="3" opacity=".15"/>
+            <rect class="red" x="286" y="192" width="14" height="14" rx="3"/>
+            <polygon points="420,192 440,199 420,206" fill="#E9CFA3"/>
+            <polygon points="433,197 440,199 433,201" class="ink"/>
+          </g>
+          <!-- sticky note -->
+          <g transform="rotate(6 90 70)">
+            <rect class="hl" x="40" y="26" width="100" height="84" rx="3"/>
+            <text class="note-text" x="56" y="62" font-size="24">A1 → C2</text>
+            <text class="note-text" x="56" y="90" font-size="19">all ages!</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2 data-t="about.title"></h2>
+        <span class="note" data-t="about.note"></span>
+      </div>
+      <div class="about-text" id="about-text"></div>
+    </div>
+  </section>
+
+  <section id="lessons" class="alt">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-t="steps.title"></h2></div>
+      <ol class="steps" id="steps"></ol>
+    </div>
+  </section>
+
+  <section id="who">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-t="audiences.title"></h2></div>
+      <div class="who" id="who-list"></div>
+    </div>
+  </section>
+
+  <section id="levels" class="alt">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-t="levels.title"></h2><p data-t="levels.text"></p></div>
+      <div class="levels" id="levels-list"></div>
+    </div>
+  </section>
+
+  <section id="test">
+    <div class="wrap test-grid">
+      <div class="sec-head">
+        <p class="eyebrow" data-t="test.eyebrow"></p>
+        <h2 data-t="test.title"></h2>
+        <p data-t="test.text"></p>
+      </div>
+      <div class="quiz" id="quiz" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="languages">
+    <div class="wrap duo">
+      <div>
+        <h2 data-t="languages.title"></h2>
+        <p class="lang-text" data-t="languages.text"></p>
+        <ul class="chips" id="chips"></ul>
+      </div>
+      <article class="card">
+        <p class="eyebrow" data-t="word.label"></p>
+        <p class="word" data-t="word.word"></p>
+        <p class="origin" data-t="word.origin"></p>
+        <p class="story" data-t="word.story"></p>
+      </article>
+    </div>
+  </section>
+
+  <section id="prices" class="alt" hidden>
+    <div class="wrap">
+      <div class="sec-head"><h2 data-t="prices.title"></h2></div>
+      <ul class="price-list" id="price-list"></ul>
+    </div>
+  </section>
+
+  <section id="book" class="band">
+    <div class="wrap book-grid">
+      <div>
+        <div class="sec-head"><h2 data-t="book.title"></h2><p data-t="book.text"></p></div>
+        <a class="btn btn-hl" id="calendar-btn" href="#book" target="_blank" rel="noopener" data-t="book.button"></a>
+        <p class="soon" id="soon" data-t="book.soon" hidden></p>
+      </div>
+      <div id="contact-box">
+        <h3 data-t="book.contactTitle"></h3>
+        <ul class="contacts" id="contacts"></ul>
+      </div>
+    </div>
+    <div class="wrap" id="embed-box" hidden>
+      <iframe id="booking-frame" title="Booking calendar" loading="lazy"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Jelena Skudra</span>
+    <span data-t="footer"></span>
+  </div>
+</footer>
+
+<script src="content.js"></script>
+<script>
+(function(){
+  var S = window.SITE, set = S.settings;
+  var lang = pickLang();
+
+  function pickLang(){
+    var h = (location.hash||"").replace("#","");
+    if (h === "ru" || h === "en") return h;
+    try { var saved = localStorage.getItem("lang"); if (saved === "ru" || saved === "en") return saved; } catch(e){}
+    var nav = (navigator.language||"en").toLowerCase();
+    return /^(ru|uk|lv|be|kk)/.test(nav) ? "ru" : "en";
+  }
+  function get(obj, path){ return path.split(".").reduce(function(o,k){ return o ? o[k] : undefined; }, obj); }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function marked(s){ return esc(s).replace(/\*(.+?)\*/g, "<mark>$1</mark>"); }
+  function el(tag, cls, html){ var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  function fill(id, items, make){ var box = document.getElementById(id); box.innerHTML = ""; (items||[]).forEach(function(it){ box.appendChild(make(it)); }); }
+
+  function render(){
+    var T = S[lang];
+    document.documentElement.lang = lang;
+    document.title = T.meta.title;
+    var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute("content", T.meta.description);
+
+    document.querySelectorAll("[data-t]").forEach(function(n){
+      var v = get(T, n.getAttribute("data-t")); if (v == null) return;
+      n.innerHTML = marked(v);
+    });
+    document.querySelectorAll(".lang button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"); });
+
+    fill("facts", T.hero.facts, function(f){ return el("li", null, esc(f)); });
+    fill("about-text", T.about.paragraphs, function(p){ return el("p", null, marked(p)); });
+    fill("steps", T.steps.items, function(s){ var li = el("li"); li.appendChild(el("h3", null, esc(s.title))); li.appendChild(el("p", null, marked(s.text))); return li; });
+    fill("who-list", T.audiences.items, function(a){ var d = el("div"); d.appendChild(el("h3", null, esc(a.title))); d.appendChild(el("p", null, marked(a.text))); return d; });
+    var n = 0;
+    fill("levels-list", T.levels.items, function(l){ n++; var d = el("div","lvl"); var s = el("div","step", esc(l.code)); s.style.height = (52 + n*22) + "px"; d.appendChild(s); d.appendChild(el("div","name", esc(l.name))); return d; });
+    fill("chips", T.languages.items, function(c){ return el("li", null, esc(c.name) + (c.level ? " <small>" + esc(c.level) + "</small>" : "")); });
+
+    var pr = document.getElementById("prices");
+    pr.hidden = !set.showPrices;
+    fill("price-list", T.prices.items, function(p){ return el("li", null, "<span>" + esc(p.name) + "</span><b>" + esc(p.price) + "</b>"); });
+
+    // booking
+    var has = !!(set.bookingLink && set.bookingLink.trim());
+    var cal = document.getElementById("calendar-btn");
+    cal.hidden = !has; if (has) cal.href = set.bookingLink;
+    document.getElementById("soon").hidden = has;
+    document.querySelectorAll(".book-link").forEach(function(a){
+      if (has) { a.href = set.bookingLink; a.target = "_blank"; a.rel = "noopener"; }
+      else { a.href = "#book"; a.removeAttribute("target"); }
+    });
+
+    // embedded Google calendar (only for calendar.google.com appointment links)
+    var embedOk = has && /calendar\.google\.com\/calendar\/appointments/.test(set.bookingLink);
+    var eb = document.getElementById("embed-box"), fr = document.getElementById("booking-frame");
+    eb.hidden = !embedOk;
+    if (embedOk) {
+      var src = set.bookingLink + (set.bookingLink.indexOf("?") > -1 ? "&" : "?") + "gv=true";
+      if (fr.getAttribute("src") !== src) fr.setAttribute("src", src);
+    }
+
+    // level test
+    var showTest = set.showTest !== false && S.testQuestions && S.testQuestions.length;
+    document.getElementById("test").hidden = !showTest;
+    document.querySelectorAll(".test-nav").forEach(function(a){ a.hidden = !showTest; });
+    if (showTest) drawQuiz();
+
+    // contacts
+    var rows = [];
+    if (set.email) rows.push(["Email", set.email, "mailto:" + set.email]);
+    if (set.whatsapp) rows.push(["WhatsApp", set.whatsapp, "https://wa.me/" + set.whatsapp.replace(/[^0-9]/g,"")]);
+    if (set.telegram) rows.push(["Telegram", "@" + set.telegram.replace("@",""), "https://t.me/" + set.telegram.replace("@","")]);
+    if (set.instagram) rows.push(["Instagram", "@" + set.instagram.replace("@",""), "https://instagram.com/" + set.instagram.replace("@","")]);
+    document.getElementById("contact-box").hidden = rows.length === 0;
+    fill("contacts", rows, function(r){
+      var li = el("li");
+      li.appendChild(el("span","k", r[0]));
+      var a = el("a", null, esc(r[1])); a.href = r[2]; if (r[2].indexOf("http") === 0) { a.target = "_blank"; a.rel = "noopener"; }
+      li.appendChild(a);
+      var b = el("button","copy", esc(T.book.copy)); b.type = "button";
+      b.addEventListener("click", function(){
+        var done = function(){ b.textContent = T.book.copied; setTimeout(function(){ b.textContent = T.book.copy; }, 1600); };
+        try { navigator.clipboard.writeText(r[1]).then(done, function(){ selectText(a); }); } catch(e){ selectText(a); }
+      });
+      li.appendChild(b);
+      return li;
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  }
+  // ---------- level test ----------
+  var quiz = { step: -1, picks: [] };
+  function drawQuiz(){
+    var T = S[lang], L = T.test, Q = S.testQuestions, box = document.getElementById("quiz");
+    box.innerHTML = "";
+    if (quiz.step < 0) {
+      var ul = el("ul","intro-list"); ["A1","A2","B1","B2","C1","C2"].forEach(function(c){ ul.appendChild(el("li",null,c)); });
+      box.appendChild(ul);
+      box.appendChild(el("p","note", esc(L.text)));
+      var st = el("button","btn btn-hl", esc(L.start)); st.type = "button"; st.id = "quiz-start";
+      st.addEventListener("click", function(){ quiz.step = 0; quiz.picks = []; drawQuiz(); });
+      var r = el("div","row"); r.appendChild(st); box.appendChild(r);
+      return;
+    }
+    if (quiz.step < Q.length) {
+      var item = Q[quiz.step];
+      var pr = el("div","progress"); var bar = el("i"); bar.style.width = (quiz.step / Q.length * 100) + "%"; pr.appendChild(bar); box.appendChild(pr);
+      box.appendChild(el("div","count", esc(L.question) + " " + (quiz.step+1) + " " + esc(L.of) + " " + Q.length));
+      box.appendChild(el("p","q", esc(item.q).replace("___", "<span style=\"border-bottom:2px solid var(--margin);display:inline-block;min-width:3em\">&nbsp;</span>")));
+      var opts = el("div","opts");
+      var nx = el("button","btn btn-hl", esc(L.next) + " →"); nx.type = "button"; nx.id = "quiz-next";
+      nx.disabled = quiz.picks[quiz.step] == null;
+      item.options.forEach(function(o, idx){
+        var b = el("button","opt", esc(o)); b.type = "button";
+        b.setAttribute("aria-pressed", quiz.picks[quiz.step] === idx ? "true" : "false");
+        b.addEventListener("click", function(){
+          quiz.picks[quiz.step] = idx;
+          opts.querySelectorAll(".opt").forEach(function(x){ x.setAttribute("aria-pressed","false"); });
+          b.setAttribute("aria-pressed","true"); nx.disabled = false;
+        });
+        opts.appendChild(b);
+      });
+      box.appendChild(opts);
+      nx.addEventListener("click", function(){ quiz.step++; drawQuiz(); });
+      var r2 = el("div","row"); r2.appendChild(nx); box.appendChild(r2);
+      return;
+    }
+    // result
+    var score = 0; Q.forEach(function(item, idx){ if (quiz.picks[idx] === item.answer) score++; });
+    var code = "A1"; (S.testLevels||[]).forEach(function(l){ if (score >= l.min) code = l.code; });
+    var lv = (T.levels.items||[]).filter(function(x){ return x.code === code; })[0];
+    box.appendChild(el("div","count", esc(L.resultLabel)));
+    box.appendChild(el("div","big", esc(code) + "<small>" + esc(lv ? lv.name : "") + "</small>"));
+    box.appendChild(el("p", null, "<b>" + score + " / " + Q.length + "</b> " + esc(L.scoreText)));
+    box.appendChild(el("p","note", esc(L.resultNote)));
+    var row = el("div","row");
+    var bk = el("a","btn btn-hl", esc(L.book));
+    if (set.bookingLink) { bk.href = set.bookingLink; bk.target = "_blank"; bk.rel = "noopener"; } else { bk.href = "#book"; }
+    row.appendChild(bk);
+    var msg = L.messageText + code + " (" + score + "/" + Q.length + ")";
+    var sendHref = set.whatsapp ? "https://wa.me/" + set.whatsapp.replace(/[^0-9]/g,"") + "?text=" + encodeURIComponent(msg)
+                 : set.telegram ? "https://t.me/" + set.telegram.replace("@","")
+                 : set.email ? "mailto:" + set.email + "?subject=" + encodeURIComponent("English test: " + code) + "&body=" + encodeURIComponent(msg) : "";
+    if (sendHref) { var sd = el("a","btn btn-line", esc(L.send)); sd.href = sendHref; if (sendHref.indexOf("http") === 0) { sd.target = "_blank"; sd.rel = "noopener"; } row.appendChild(sd); }
+    box.appendChild(row);
+    var ag = el("button","opt", "↺ " + esc(L.again)); ag.type = "button"; ag.style.alignSelf = "flex-start";
+    ag.addEventListener("click", function(){ quiz.step = 0; quiz.picks = []; drawQuiz(); });
+    box.appendChild(ag);
+  }
+
+  function selectText(node){ var r = document.createRange(); r.selectNodeContents(node); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+
+  document.querySelectorAll(".lang button").forEach(function(b){
+    b.addEventListener("click", function(){ lang = b.dataset.lang; try { localStorage.setItem("lang", lang); } catch(e){} render(); });
+  });
+  render();
+})();
+</script>
+</body>
+</html>
