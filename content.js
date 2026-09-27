@@ -99,7 +99,7 @@ window.SITE = {
       title: "Online English Tutor Jelena Skudra | GCSE & IELTS Preparation, Kids & Adults",
       description: "Online English lessons with a UK-accredited teacher: speaking-focused lessons for children and adults, GCSE English and IELTS preparation, essay checking. Free level test and online booking."
     },
-    nav: { about: "About", lessons: "Lessons", prices: "Prices", reviews: "Reviews", payment: "Payment", test: "Free test", book: "Book a lesson" },
+    nav: { about: "About", lessons: "Lessons", prices: "Prices", reviews: "Reviews", payment: "Payment", test: "Test & FAQ", start: "How to start", book: "Book a lesson" },
 
     hero: {
       eyebrow: "Online English tutor · GCSE · IELTS",
@@ -215,7 +215,8 @@ window.SITE = {
     pages: {
       about: { metaTitle: "About Jelena Skudra · Online English Teacher from the UK", description: "UK-accredited English teacher, University of Nottingham graduate, 7 years of teaching in British schools and online. How my speaking-focused lessons work.", title: "About me", lead: "In England since 2010. UK-accredited English teacher with 7 years of experience." },
       prices: { metaTitle: "English Lesson Prices · GCSE, IELTS, Kids & Adults | Jelena Skudra", description: "Prices for online English lessons in £, € and $: adults £20 (50 min), children from £15, GCSE and IELTS preparation £25, essay checking £30 a month.", title: "Lessons & prices", lead: "All lessons are online. Prices are in pounds, with approximate euro and dollar equivalents." },
-      test: { metaTitle: "Free English Level Test (A1–C2) · 3 Minutes | Jelena Skudra", description: "Find out your English level in 3 minutes: 18 questions from beginner to advanced, instant CEFR result (A1–C2). Free, no sign-up.", title: "Free English level test", lead: "18 questions, 3 minutes, instant result. No sign-up." },
+      test: { metaTitle: "Free English Level Test (A1–C2) & FAQ | Jelena Skudra", description: "Find out your English level in 3 minutes: 18 questions from beginner to advanced, instant CEFR result (A1–C2). Free, no sign-up. Plus answers to common questions about lessons.", title: "Level test and questions", lead: "Check your English level in 3 minutes, and find answers to common questions." },
+      start: { metaTitle: "How to Start Online English Lessons · Jelena Skudra", description: "Three simple steps: book a first lesson online, we find your topics and level, then lessons planned around your interests and goals.", title: "How to start", lead: "Three simple steps to your first lesson." },
       book: { metaTitle: "Book an Online English Lesson · Jelena Skudra", description: "Choose a free time in Jelena’s calendar and book an online English lesson. You’ll get a Google Meet link and a reminder by email.", title: "Book a lesson", lead: "Choose a free time in my calendar. You’ll get a confirmation email with a video link." }
     },
 
@@ -314,7 +315,7 @@ window.SITE = {
       title: "Репетитор английского онлайн — Елена Скудра | GCSE, IELTS, дети и взрослые",
       description: "Уроки английского онлайн с преподавателем из Англии: разговорный английский, подготовка к GCSE и IELTS, занятия для детей от 5 лет и взрослых. Британская аккредитация, 7 лет опыта. Бесплатный тест уровня и онлайн-запись."
     },
-    nav: { about: "Обо мне", lessons: "Занятия", prices: "Цены", reviews: "Отзывы", payment: "Оплата", test: "Тест", book: "Записаться" },
+    nav: { about: "Обо мне", lessons: "Занятия", prices: "Цены", reviews: "Отзывы", payment: "Оплата", test: "Тест и вопросы", start: "Как начать", book: "Записаться" },
 
     hero: {
       eyebrow: "Репетитор английского онлайн · GCSE · IELTS",
@@ -428,7 +429,8 @@ window.SITE = {
     pages: {
       about: { metaTitle: "Обо мне · Елена Скудра, преподаватель английского из Англии", description: "Преподаватель английского с британской аккредитацией, выпускница Ноттингемского университета, 7 лет опыта в британских школах и онлайн. Как проходят мои уроки с упором на разговор.", title: "Обо мне", lead: "В Англии с 2010 года. Преподаватель английского с британской аккредитацией и 7 годами опыта." },
       prices: { metaTitle: "Цены на уроки английского онлайн · GCSE, IELTS, дети и взрослые", description: "Стоимость онлайн-уроков английского в £, € и $: взрослые — £20 (50 мин), дети — от £15, подготовка к GCSE и IELTS — £25, проверка эссе — £30 в месяц.", title: "Уроки и цены", lead: "Все занятия проходят онлайн. Цены в фунтах, в евро и долларах — примерно." },
-      test: { metaTitle: "Бесплатный тест на уровень английского (A1–C2) · 3 минуты", description: "Узнайте свой уровень английского за 3 минуты: 18 вопросов от начального до продвинутого, результат по шкале CEFR (A1–C2) сразу. Бесплатно и без регистрации.", title: "Бесплатный тест уровня английского", lead: "18 вопросов, 3 минуты, результат сразу. Без регистрации." },
+      test: { metaTitle: "Бесплатный тест на уровень английского (A1–C2) и ответы на вопросы", description: "Узнайте свой уровень английского за 3 минуты: 18 вопросов от начального до продвинутого, результат по шкале CEFR (A1–C2) сразу. Бесплатно и без регистрации. А также ответы на частые вопросы об уроках.", title: "Тест уровня и вопросы", lead: "Проверьте свой уровень английского за 3 минуты и найдите ответы на частые вопросы." },
+      start: { metaTitle: "Как начать заниматься английским онлайн · Елена Скудра", description: "Три простых шага: запишитесь на первый урок онлайн, мы найдём ваши темы и уровень, а дальше — уроки под ваши интересы и цели.", title: "Как начать", lead: "Три простых шага до первого урока." },
       book: { metaTitle: "Записаться на урок английского онлайн · Елена Скудра", description: "Выберите свободное время в календаре и запишитесь на онлайн-урок английского. Ссылка на Google Meet и напоминание придут на почту.", title: "Записаться на урок", lead: "Выберите свободное время в моём календаре. На почту придёт подтверждение со ссылкой на видеозвонок." }
     },
 

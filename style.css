@@ -294,3 +294,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 #test-strip h2{font-size:clamp(26px,3vw,34px)}
 .after-pay .cta{margin-top:0}
 @media (max-width:560px){ .strip-list{grid-template-columns:1fr} }
+
+.btn-line.light{border-color:var(--band-ink);color:var(--band-ink)}
+.cta-band .after-pay p{color:var(--band-muted)}
+.cta-band h2{color:var(--band-ink)}

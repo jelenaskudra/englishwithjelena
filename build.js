@@ -22,7 +22,7 @@ const SITE = sandbox.window.SITE;
 
 const pages = [
   { tpl: "index.html", slug: "", meta: (T) => T.meta },
-  { tpl: "about.html", slug: "about", meta: (T) => ({ title: T.pages.about.metaTitle, description: T.pages.about.description }) },
+  { tpl: "start.html", slug: "start", meta: (T) => ({ title: T.pages.start.metaTitle, description: T.pages.start.description }) },
   { tpl: "prices.html", slug: "prices", meta: (T) => ({ title: T.pages.prices.metaTitle, description: T.pages.prices.description }) },
   { tpl: "test.html", slug: "test", meta: (T) => ({ title: T.pages.test.metaTitle, description: T.pages.test.description }) },
   { tpl: "book.html", slug: "book", meta: (T) => ({ title: T.pages.book.metaTitle, description: T.pages.book.description }) },
@@ -33,6 +33,10 @@ const langs = ["ru", "en"];
 
 const url = (lang, slug) => DOMAIN + (lang === "en" ? "/en/" : "/") + slug;
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+
+function faqLd(T) {
+  return { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: (T.faq ? T.faq.items : []).map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
+}
 
 function jsonLd(T, lang) {
   const offers = (T.prices.items || []).map((p) => ({
@@ -59,11 +63,7 @@ function jsonLd(T, lang) {
         email: SITE.settings.email || undefined
       },
       { "@type": "WebSite", "@id": DOMAIN + "/#website", url: DOMAIN + "/", name: "English with Jelena", inLanguage: ["ru", "en"] },
-      ...offers,
-      {
-        "@type": "FAQPage",
-        mainEntity: (T.faq ? T.faq.items : []).map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } }))
-      }
+      ...offers
     ]
   };
 }
@@ -103,7 +103,8 @@ for (const lang of langs) {
     add(`<meta property="og:locale" content="${lang === "ru" ? "ru_RU" : "en_GB"}">`);
     add(`<meta name="twitter:card" content="summary_large_image">`);
     add(`<link rel="apple-touch-icon" href="${prefix}icon.png">`);
-    if (page.slug === "") add(`<script type="application/ld+json">${JSON.stringify(jsonLd(T, lang))}</script>`);
+    if (page.slug === "") add(`<script type="application/ld+json">${JSON.stringify(jsonLd(T, lang, false))}</script>`);
+    if (page.slug === "test") add(`<script type="application/ld+json">${JSON.stringify(faqLd(T))}</script>`);
 
     // Language switch becomes real links between the two versions
     const other = lang === "ru" ? "en" : "ru";
