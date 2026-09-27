@@ -20,6 +20,8 @@
 
   function render(){
     var T = S[lang];
+    ["about","steps","offer","lesson","reviews","levels","languages","prices","faq","book","test","reviewsPage","payment"].forEach(function(k){ if (!T[k]) T[k] = { items: [], paragraphs: [], expect: [], notes: [], labels: {} }; });
+    if (!T.hero) T.hero = { facts: [] };
     document.documentElement.lang = lang;
     var page = document.body.getAttribute("data-page") || "home";
     document.title = page === "reviews" ? T.reviewsPage.metaTitle : page === "payment" ? T.payment.metaTitle : T.meta.title;

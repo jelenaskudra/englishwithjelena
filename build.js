@@ -114,9 +114,12 @@ for (const lang of langs) {
     // Pretty links (/reviews instead of reviews.html) and asset paths for /en/
     let html = dom.serialize();
     html = html.replace(/href="reviews\.html"/g, 'href="reviews"').replace(/href="payment\.html"/g, 'href="payment"');
+    // Cache-busting: browsers always fetch the newest text/design after a change
+    const v = Date.now().toString(36);
+    html = html.replace(/(href|src)="(style\.css|content\.js|site\.js)"/g, '$1="$2?v=' + v + '"');
     if (lang === "en") {
       html = html
-        .replace(/(href|src)="(style\.css|content\.js|site\.js|icon\.png)"/g, '$1="../$2"');
+        .replace(/(href|src)="(style\.css|content\.js|site\.js|icon\.png)(\?v=[a-z0-9]+)?"/g, '$1="../$2$3"');
     }
     const file = path.join(OUT, lang === "en" ? "en" : "", (page.slug || "index") + ".html");
     fs.writeFileSync(file, html);
