@@ -24,6 +24,18 @@
 | Show prices | `settings` → `showPrices: true`, then fill `prices` in both languages |
 | Language levels | `languages` → `level: "C1"` etc. |
 | "Word with a history" card | `word` (change it monthly, it's good for Google too) |
+| Prices | `prices` in both `en` and `ru` |
+| Card payment buttons (Stripe) | `settings` → `payLinks` (one link per lesson type) |
+| Bank details (Wise) | `settings` → `bank` |
+| Review form (Google Form) | `settings` → `feedbackForm` |
+| Reviews | `reviews` → `items` (`featured: true` shows it on the home page) |
+
+## Files
+- `index.html`: home page
+- `reviews.html`: reviews page (englishwithjelena.com/reviews)
+- `payment.html`: payment page (englishwithjelena.com/payment)
+- `content.js`: **all the text**. This is the only file you normally edit.
+- `style.css`, `site.js`: design and behaviour. Don't edit these.
 
 ## Adding a photo later
 Upload the photo to this repository (**Add file → Upload files**) and tell Claude its name. Claude will place it on the page.

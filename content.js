@@ -28,8 +28,33 @@ window.SITE = {
     telegram: "",          // username without @, e.g. "jelenaskudra"
     instagram: "",         // username without @
 
-    // Show the prices section? true = show, false = hide
-    showPrices: false,
+    // Show the "Lessons & prices" section? true = show, false = hide
+    showPrices: true,
+
+    // PAYMENT -------------------------------------------------------
+    // Stripe payment links for each lesson type (paste the link from Stripe
+    // between the quotes). Empty = no card button for that lesson.
+    payLinks: {
+      adult: "",
+      kids5: "",
+      kids10: "",
+      gcse: "",
+      ielts: "",
+      essay: ""
+    },
+    // Bank details for transfers (e.g. from Wise Business). Empty = hidden.
+    bank: {
+      holder: "",
+      sortCode: "",
+      account: "",
+      iban: "",
+      bic: ""
+    },
+
+    // REVIEWS FORM ---------------------------------------------------
+    // Link to a Google Form for new reviews (Google Form > Send > <> embed,
+    // copy only the link inside src="..."). Empty = show email instead.
+    feedbackForm: "",
 
     // Show the free level test? true / false
     showTest: true
@@ -67,32 +92,33 @@ window.SITE = {
   /* ================= ENGLISH ================= */
   en: {
     meta: {
-      title: "Jelena Skudra · English teacher online for all ages",
-      description: "Online English lessons with Jelena Skudra, MA in History from a UK university. Lessons for children, teens and adults, built around your interests. Book a lesson in a few clicks."
+      title: "Online English Tutor Jelena Skudra | GCSE & IELTS Preparation, Kids & Adults",
+      description: "Online English lessons with a UK-accredited teacher: speaking-focused lessons for children and adults, GCSE English and IELTS preparation, essay checking. Free level test and online booking."
     },
-    nav: { about: "About", lessons: "Lessons", levels: "Levels", book: "Book a lesson" },
+    nav: { about: "About", lessons: "Lessons", prices: "Prices", reviews: "Reviews", payment: "Payment", book: "Book a lesson" },
 
     hero: {
-      eyebrow: "Online English lessons · all ages",
-      title: "English lessons built around *what you love*",
-      text: "I’m Jelena, an English teacher with a Master’s degree in History from a UK university. We learn through the things that interest you: films, games, travel, history, work, or the exam you’re aiming for.",
+      eyebrow: "Online English tutor · GCSE · IELTS",
+      tagline: "English that works with your brain",
+      title: "English for anyone who has started a hundred times *and quit a hundred and one*",
+      text: "I’m Jelena. I’ve lived in England since 2010, graduated from the University of Nottingham and have taught English for 7 years, in British schools and online. Speaking-focused lessons for children, teens and adults, plus GCSE and IELTS preparation.",
       bookButton: "Book a lesson",
-      moreButton: "How lessons work",
-      facts: ["MA in History, UK", "Children, teens and adults", "Online, wherever you are"]
+      moreButton: "What a lesson is like",
+      facts: ["University of Nottingham", "UK-accredited teacher", "7 years of teaching"]
     },
 
     about: {
       title: "About me",
-      note: "Studied & graduated in the UK",
+      note: "In England since 2010",
       paragraphs: [
-        "I studied in the United Kingdom and finished my Master’s degree in History at one of the country’s top universities. Living and studying there taught me the English people actually speak, not only the English in textbooks.",
-        "My lessons start with you. If you love football, we read match reports. If you’re into history, we explore the stories behind English words and places. Grammar and vocabulary come in naturally, through topics you want to talk about.",
-        "I teach children, teenagers and adults, from complete beginners to advanced learners."
+        "I moved to England in 2010 and graduated with honours from the University of Nottingham in 2020. In 2021 I gained UK state accreditation as an English teacher. In 7 years of teaching I’ve worked in schools and online, with children, teenagers and adults.",
+        "My biggest advantage: I still remember what it’s like to look at a sentence and think «I’ll never be able to say it like that». But I also have years of real experience, from everyday conversation to academic study, and I can pass it on to my students.",
+        "People often think they have to choose: a native speaker or a teacher who speaks their language? A «unique method» or a textbook? I think it’s a false choice. I lived, worked and studied in England for more than ten years, so my English is the English people actually speak. And I’ll still understand you if you say something in Russian, and I’m trained to teach."
       ]
     },
 
     steps: {
-      title: "How lessons work",
+      title: "How to start",
       items: [
         { title: "Book a first lesson", text: "Pick a free time in my online calendar. You get a confirmation email and a video link straight away." },
         { title: "We find your topics", text: "We talk about your goals and interests, and I check your level in a relaxed way, with no tests to fear." },
@@ -100,12 +126,39 @@ window.SITE = {
       ]
     },
 
-    audiences: {
-      title: "Who I teach",
+    offer: {
+      title: "What I offer",
       items: [
-        { title: "Children", text: "Stories, games and songs. Short, lively lessons that keep young learners curious." },
-        { title: "Teenagers", text: "School support and exam preparation, using music, games and series they already like." },
-        { title: "Adults", text: "Speaking confidence for work, travel or life abroad, at your own pace." }
+        { title: "English for neurodivergent learners", text: "Flexible topics, support when your attention switches, and a safe space with no judgement. The pace and structure fit the way your brain works. The main rule: it’s better to start and make mistakes than not to start at all. We’ll fix the mistakes over time." },
+        { title: "GCSE English", text: "English Language and Literature, the exams taken by native speakers, adapted for Russian speakers. We’ll look at how the exam works and what examiners really want, practise the skills and learn the key topics. You can ask a question in Russian at any time, check a translation, or try a skill on a short Russian text first. I have real experience preparing students for GCSE in a British school." },
+        { title: "Individual and group lessons", text: "Individual lessons focus on your own goal, whether that’s passing IELTS or getting ready for a trip or a job interview, and bring in your interests. Groups make lessons more affordable and give you practice talking with different people." }
+      ]
+    },
+
+    lesson: {
+      title: "What a lesson is like",
+      paragraphs: [
+        "I teach with a focus on speaking. First, because real conversation is exactly what no video course or AI can give you. Second, because it works best. Years ago I was put into an ordinary English state school without speaking the language, and I had to learn it on the go. Now I know how to build a conversation around the exact topic you need, and combine it with grammar and vocabulary.",
+        "I build lessons on textbooks written by teams of qualified specialists, then add to them: your interests, and more speaking practice with what we’ve covered. You just answer questions, sometimes everyday ones, sometimes deeper, and as you answer you practise the lesson’s topic while I listen carefully and note any mistakes. We fix them gradually."
+      ],
+      expectTitle: "What to expect",
+      expect: ["Vocabulary, grammar and steady progress in all four skills: speaking, reading, writing and listening", "Lots of speaking practice", "A flexible structure, not a rigid one"],
+      exampleLabel: "An example",
+      example: "A student was sure she didn’t understand the Present Perfect. We spent most of the lesson playing «Never have I ever…» with prompts on the screen (in English, of course). At the end I pointed out that she’d been using the mysterious Present Perfect, correctly, for half an hour.",
+      flexTitle: "Why a flexible structure?",
+      flex: "Not everything should be planned in advance. Small gaps we fix on the spot; bigger ones go into the plan for the next lesson. If a five-minute review takes longer because a topic has faded, I’ll spend the time on it, with no «but we’ve already done this!» guilt. And if you want to tell a long story about your weekend during the warm-up, I won’t cut you off when the timer runs out. I’ll give you the words and structures you need, so the story becomes part of the lesson."
+    },
+
+    reviews: {
+      title: "What students say",
+      // Reviews are shown as written. featured: true = bigger card.
+      items: [
+        { name: "Pavel", date: "June 2026", featured: true, text: "Jelena is a wonderful tutor, not only for improving your general English level and preparing for exams, but also for more specific goals such as university admissions and interviews. Her lessons are both effective and enjoyable, and she creates a friendly and supportive atmosphere. With her help, I was able to improve my English quickly, gain confidence, and get admitted to the university I wanted to attend." },
+        { name: "Анна, IELTS", date: "", featured: true, text: "Я была уверена, что слушание сдам стабильно на 5, а больше всего разочаровал спикинг, но письмо с чтением — правда хороший результат. Набрала более высокую оценку там, где и не думала. Спасибо вам за вашу работу! Без вас я бы даже такого уровня не достигла. Вы открыли мне другой английский, который приятно и интересно изучать, а не чувствовать страх, когда его видишь." },
+        { name: "Inese", date: "February 2026", text: "Focused on my needs." },
+        { name: "Anna", date: "July 2025", text: "She explains clearly." },
+        { name: "Armands", date: "April 2025", text: "Many moments were clear and understandable :)" },
+        { name: "Dina", date: "May 2025", text: "Everything is good." }
       ]
     },
 
@@ -124,7 +177,7 @@ window.SITE = {
 
     languages: {
       title: "Languages are my passion",
-      text: "Besides English, I speak Russian, Ukrainian, Latvian and Spanish, each at a different level. So I know from my own experience what really helps when you learn a new language.",
+      text: "Besides English, I’m passionate about other languages: Russian, Ukrainian, Latvian and Spanish. Exploring them myself shows me what really helps when you learn a new language.",
       // "level" is optional. Leave "" to show only the language name.
       items: [
         { name: "Русский", level: "" },
@@ -142,11 +195,29 @@ window.SITE = {
     },
 
     prices: {
-      title: "Prices",
+      title: "Lessons & prices",
+      text: "All lessons are online. Prices are per lesson unless stated otherwise.",
+      // Each card: id (don’t change; links it to payLinks), tag, name, text, length, price.
       items: [
-        { name: "Trial lesson, 30 min", price: "" },
-        { name: "Lesson, 50 min", price: "" },
-        { name: "Package of 10 lessons", price: "" }
+        { id: "adult", tag: "Adults", name: "English lesson", text: "Speaking, grammar and vocabulary built around your interests and goals.", length: "50 min", price: "£20" },
+        { id: "kids5", tag: "Children 5–10", name: "Kids’ lesson", text: "Playful lessons with stories, games and songs.", length: "30 min", price: "£15" },
+        { id: "kids10", tag: "Children 10+", name: "Kids’ lesson", text: "School support and confident speaking for older children.", length: "40 min", price: "£17" },
+        { id: "gcse", tag: "Exam", name: "GCSE preparation", text: "Exam technique, reading and writing tasks, and practice with past papers.", length: "55 min", price: "£25" },
+        { id: "ielts", tag: "Exam", name: "IELTS preparation", text: "All four skills, timed practice and strategies for a higher band score.", length: "55 min", price: "£25" },
+        { id: "essay", tag: "Exam", name: "Essay checking", text: "4 IELTS or GCSE essays a month, with detailed written feedback.", length: "1 month", price: "£30" }
+      ]
+    },
+
+    faq: {
+      title: "Questions and answers",
+      items: [
+        { q: "How much does a lesson cost?", a: "An English lesson for adults (50 min) is £20. Lessons for children are £15 for ages 5–10 (30 min) and £17 for 10+ (40 min). GCSE and IELTS preparation (55 min) is £25. Essay checking is £30 a month for 4 essays." },
+        { q: "How do online lessons work?", a: "Lessons take place on Google Meet. When you book a time in my calendar, you get a confirmation email with the video link and a reminder." },
+        { q: "Can I study with you if I live outside the UK?", a: "Yes. Lessons are online, so you can join from any country: Latvia, Ukraine, Russia, Spain or anywhere else. If you’re paying from Russia, please write to me first, as Russian bank cards don’t work with my payment methods." },
+        { q: "Do you teach children?", a: "Yes, from age 5. Lessons for ages 5–10 are 30 minutes and full of stories, games and songs; for 10+ they’re 40 minutes. For older children I also help with school English and GCSE." },
+        { q: "My child studies at a British school. Can you help with GCSE English?", a: "Yes. I have experience preparing students for GCSE English Language and Literature in a British school. We work on exam technique and key topics, and your child can always ask a question in Russian." },
+        { q: "Do you work with neurodivergent learners?", a: "Yes. Lessons have flexible topics, a pace and structure that fit the way your brain works, support when attention switches, and a safe space with no judgement." },
+        { q: "How do I find out my level?", a: "Take the free 3-minute level test on this page. In the first lesson we’ll also check your speaking and listening and make a plan." }
       ]
     },
 
@@ -178,38 +249,71 @@ window.SITE = {
       messageText: "Hello Jelena! I took the English test on your website. My result: "
     },
 
+    reviewsPage: {
+      metaTitle: "Reviews · Jelena Skudra, English teacher",
+      title: "What students say",
+      text: "Real reviews from my students: adults, teenagers and exam candidates.",
+      allLink: "All reviews →",
+      formTitle: "Leave a review",
+      formText: "Have you studied with me? A few words would mean a lot, and they help other students choose.",
+      formSoon: "The review form is coming soon. Until then, you can send your review by email:"
+    },
+
+    payment: {
+      metaTitle: "Payment · Jelena Skudra, English teacher",
+      title: "Payment",
+      text: "Pay for lessons by card, Apple Pay or Google Pay, or by bank transfer. Prices are in pounds (£).",
+      cardTitle: "Pay by card",
+      payButton: "Pay",
+      noCard: "Card payment is coming soon. For now, please pay by bank transfer or write to me.",
+      bankTitle: "Bank transfer",
+      labels: { holder: "Account holder", sortCode: "Sort code", account: "Account number", iban: "IBAN", bic: "BIC / SWIFT", reference: "Reference" },
+      reference: "Your name and lesson date",
+      bankSoon: "Bank details are coming soon. Write to me and I’ll send them.",
+      notesTitle: "Good to know",
+      notes: [
+        "Please pay before the lesson.",
+        "Use your name as the payment reference so I can find your payment.",
+        "Paying from Russia? Russian bank cards don’t work with these payment methods, so please write to me first.",
+        "Any questions about payment? Write to me."
+      ],
+      bookTitle: "Already paid?",
+      bookText: "Choose a time for your lesson in my calendar."
+    },
+
     footer: "English teacher online"
   },
 
   /* ================= РУССКИЙ ================= */
   ru: {
     meta: {
-      title: "Елена Скудра · преподаватель английского онлайн для всех возрастов",
-      description: "Уроки английского онлайн с Еленой Скудрой, магистром истории британского университета. Занятия для детей, подростков и взрослых, построенные на ваших интересах. Запись на урок в пару кликов."
+      title: "Репетитор английского онлайн — Елена Скудра | GCSE, IELTS, дети и взрослые",
+      description: "Уроки английского онлайн с преподавателем из Англии: разговорный английский, подготовка к GCSE и IELTS, занятия для детей от 5 лет и взрослых. Британская аккредитация, 7 лет опыта. Бесплатный тест уровня и онлайн-запись."
     },
-    nav: { about: "Обо мне", lessons: "Уроки", levels: "Уровни", book: "Записаться" },
+    nav: { about: "Обо мне", lessons: "Занятия", prices: "Цены", reviews: "Отзывы", payment: "Оплата", book: "Записаться" },
 
     hero: {
-      eyebrow: "Английский онлайн · для любого возраста",
-      title: "Английский через *то, что вам интересно*",
-      text: "Меня зовут Елена, я преподаватель английского и магистр истории британского университета. Мы учим язык через то, что вам нравится: фильмы, игры, путешествия, историю, работу или экзамен, к которому вы готовитесь.",
+      eyebrow: "Репетитор английского онлайн · GCSE · IELTS",
+      tagline: "English that works with your brain",
+      title: "Английский для тех, кто начинал уже сто раз *и забросил сто один*",
+      text: "Меня зовут Елена. Я живу в Англии с 2010 года, окончила Ноттингемский университет и 7 лет преподаю английский — в британских школах и онлайн. Уроки с упором на живую речь для детей, подростков и взрослых, подготовка к GCSE и IELTS.",
       bookButton: "Записаться на урок",
-      moreButton: "Как проходят уроки",
-      facts: ["Магистр истории, Великобритания", "Дети, подростки и взрослые", "Онлайн, где бы вы ни были"]
+      moreButton: "Как проходит занятие",
+      facts: ["Ноттингемский университет", "Британская аккредитация преподавателя", "7 лет преподавания"]
     },
 
     about: {
-      title: "Обо мне",
-      note: "Училась в Великобритании",
+      title: "О себе",
+      note: "В Англии с 2010 года",
       paragraphs: [
-        "Я училась в Великобритании и окончила магистратуру по истории в одном из ведущих университетов страны. Жизнь и учёба там научили меня тому английскому, на котором говорят на самом деле, а не только тому, что в учебниках.",
-        "Мои уроки начинаются с вас. Любите футбол — читаем репортажи о матчах. Интересуетесь историей — разбираем истории английских слов и мест. Грамматика и лексика приходят сами, через темы, о которых хочется говорить.",
-        "Я занимаюсь с детьми, подростками и взрослыми — от полного нуля до продвинутого уровня."
+        "В 2010 году я переехала в Англию, а в 2020 с отличием окончила Ноттингемский университет. В 2021 получила британскую государственную аккредитацию преподавателя английского языка. За 7 лет преподавания работала и в школах, и онлайн — с детьми, подростками и взрослыми.",
+        "Мой главный плюс — я ещё помню, каково это: смотреть на предложение и думать «да я так никогда не сформулирую». Но у меня уже много реального опыта — ежедневного общения и академического обучения, — который я могу передать ученикам.",
+        "Обычно при выборе преподавателя кажется, что надо выбрать: носитель или свой? «Авторская методика» или учебник? Мне кажется, это ложный выбор. Я больше десяти лет жила, работала и училась в Англии, поэтому мой английский — живой: так, как действительно разговаривают, а не как пишут в старых учебниках. И при этом я пойму, если вы скажете что-то по-русски, и у меня есть профессиональная подготовка преподавателя."
       ]
     },
 
     steps: {
-      title: "Как проходят уроки",
+      title: "Как начать",
       items: [
         { title: "Запишитесь на первый урок", text: "Выберите свободное время в моём онлайн-календаре. Письмо с подтверждением и ссылка на видеозвонок придут сразу." },
         { title: "Находим ваши темы", text: "Обсуждаем ваши цели и интересы, а я спокойно определяю ваш уровень — без страшных тестов." },
@@ -217,12 +321,39 @@ window.SITE = {
       ]
     },
 
-    audiences: {
-      title: "С кем я занимаюсь",
+    offer: {
+      title: "Направления",
       items: [
-        { title: "Дети", text: "Истории, игры и песни. Короткие живые уроки, на которых детям интересно." },
-        { title: "Подростки", text: "Помощь со школой и подготовка к экзаменам — через музыку, игры и сериалы, которые им уже нравятся." },
-        { title: "Взрослые", text: "Уверенная разговорная речь для работы, путешествий или жизни за границей — в вашем темпе." }
+        { title: "Английский для нейроотличных", text: "Гибкий выбор тем, поддержка при переключении внимания, безопасная среда без осуждения. Темп и структура обучения подстроены под ваш мозг. Главное правило: лучше начать и делать с ошибками, чем не делать вообще. Ошибки со временем исправим." },
+        { title: "GCSE English", text: "Английский язык и литература для носителей — адаптировано для русскоговорящих. Разберём структуру экзамена и что на самом деле хотят экзаменаторы, потренируем нужные навыки, выучим ключевые темы. В любой момент можно задать вопрос по-русски, уточнить перевод слова или разобрать навык на маленьком русском тексте, прежде чем браться за английский. Есть реальный опыт работы в британской школе и подготовки учеников к GCSE." },
+        { title: "Индивидуальные и групповые занятия", text: "Индивидуальные уроки позволяют сосредоточиться на вашей личной цели — сдать IELTS, подготовиться к путешествию или собеседованию — и добавить в уроки ваши интересы. Группы делают занятия доступнее и сразу тренируют общение с разными людьми." }
+      ]
+    },
+
+    lesson: {
+      title: "Как проходит занятие",
+      paragraphs: [
+        "Я преподаю с упором на речь. Во-первых, потому что живой разговор — именно то, что вам не даст ни одно обучающее видео или ИИ. Во-вторых, потому что так эффективнее всего. Когда-то меня без знания языка отправили в обычную государственную школу в Англии, и язык пришлось учить на ходу. Сейчас я знаю, как выстроить разговор так, чтобы практиковать нужную именно сейчас тему и совмещать это с грамматикой и лексикой.",
+        "Я строю уроки на основе учебников, созданных командами профессиональных методистов, и дополняю их: добавляю ваши интересы и больше практики пройденного в живой речи. Перед вами — просто вопросы, иногда бытовые, иногда глубже, и, отвечая на них, вы точечно тренируете тему урока, а я внимательно слушаю и отмечаю ошибки. Исправляем их постепенно."
+      ],
+      expectTitle: "Чего ждать от уроков",
+      expect: ["Лексики, грамматики и постепенного развития всех навыков: речь, чтение, письмо, слушание", "Много разговорной практики", "Гибкой, а не жёсткой структуры"],
+      exampleLabel: "Пример",
+      example: "Ученица была уверена, что не понимает Present Perfect. Большую часть урока мы играли в «Я никогда не…» по подсказкам на экране (на английском, разумеется). В конце я показала ей, что она полчаса использовала этот таинственный Present Perfect — и правильно!",
+      flexTitle: "Почему структура «не жёсткая»?",
+      flex: "Не всё стоит строго планировать заранее. Небольшие пробелы закрываем сразу, большие — попадают в план следующего занятия. Если пятиминутное повторение растягивается, потому что тема подзабылась, я потрачу на неё время — без чувства вины «мы же это уже прошли!». А если на разминке хочется рассказать длинную историю о выходных, поделиться радостью или пожаловаться на жизнь — я не перебью по таймеру, а подскажу нужные слова и конструкции, чтобы история стала частью урока."
+    },
+
+    reviews: {
+      title: "Отзывы учеников",
+      // Reviews are shown as written. featured: true = bigger card.
+      items: [
+        { name: "Pavel", date: "June 2026", featured: true, text: "Jelena is a wonderful tutor, not only for improving your general English level and preparing for exams, but also for more specific goals such as university admissions and interviews. Her lessons are both effective and enjoyable, and she creates a friendly and supportive atmosphere. With her help, I was able to improve my English quickly, gain confidence, and get admitted to the university I wanted to attend." },
+        { name: "Анна, IELTS", date: "", featured: true, text: "Я была уверена, что слушание сдам стабильно на 5, а больше всего разочаровал спикинг, но письмо с чтением — правда хороший результат. Набрала более высокую оценку там, где и не думала. Спасибо вам за вашу работу! Без вас я бы даже такого уровня не достигла. Вы открыли мне другой английский, который приятно и интересно изучать, а не чувствовать страх, когда его видишь." },
+        { name: "Inese", date: "February 2026", text: "Focused on my needs." },
+        { name: "Anna", date: "July 2025", text: "She explains clearly." },
+        { name: "Armands", date: "April 2025", text: "Many moments were clear and understandable :)" },
+        { name: "Dina", date: "May 2025", text: "Everything is good." }
       ]
     },
 
@@ -241,7 +372,7 @@ window.SITE = {
 
     languages: {
       title: "Языки — моё большое увлечение",
-      text: "Кроме английского, я говорю на русском, украинском, латышском и испанском — на разном уровне. Поэтому по себе знаю, что действительно помогает выучить новый язык.",
+      text: "Кроме английского, я увлекаюсь и другими языками: русским, украинским, латышским и испанским. Изучая их, я по себе знаю, что действительно помогает выучить новый язык.",
       items: [
         { name: "Русский", level: "" },
         { name: "Українська", level: "" },
@@ -258,11 +389,28 @@ window.SITE = {
     },
 
     prices: {
-      title: "Цены",
+      title: "Уроки и цены",
+      text: "Все занятия проходят онлайн. Цена указана за один урок, если не написано иначе.",
       items: [
-        { name: "Пробный урок, 30 мин", price: "" },
-        { name: "Урок, 50 мин", price: "" },
-        { name: "Пакет из 10 уроков", price: "" }
+        { id: "adult", tag: "Взрослые", name: "Урок английского", text: "Разговор, грамматика и лексика — вокруг ваших интересов и целей.", length: "50 мин", price: "£20" },
+        { id: "kids5", tag: "Дети 5–10 лет", name: "Урок для детей", text: "Игровые уроки с историями, играми и песнями.", length: "30 мин", price: "£15" },
+        { id: "kids10", tag: "Дети от 10 лет", name: "Урок для детей", text: "Помощь со школой и уверенная разговорная речь.", length: "40 мин", price: "£17" },
+        { id: "gcse", tag: "Экзамен", name: "Подготовка к GCSE", text: "Техника экзамена, задания на чтение и письмо, практика на реальных вариантах.", length: "55 мин", price: "£25" },
+        { id: "ielts", tag: "Экзамен", name: "Подготовка к IELTS", text: "Все четыре навыка, практика на время и стратегии для более высокого балла.", length: "55 мин", price: "£25" },
+        { id: "essay", tag: "Экзамен", name: "Проверка эссе", text: "4 эссе IELTS или GCSE в месяц с подробным письменным разбором.", length: "1 месяц", price: "£30" }
+      ]
+    },
+
+    faq: {
+      title: "Вопросы и ответы",
+      items: [
+        { q: "Сколько стоит урок английского?", a: "Урок для взрослых (50 минут) — £20. Уроки для детей: £15 для 5–10 лет (30 минут) и £17 для детей от 10 лет (40 минут). Подготовка к GCSE и IELTS (55 минут) — £25. Проверка эссе — £30 в месяц за 4 эссе." },
+        { q: "Как проходят онлайн-уроки?", a: "Занятия проходят в Google Meet. После записи в моём календаре вам придёт письмо с подтверждением, ссылкой на видеозвонок и напоминанием." },
+        { q: "Можно ли заниматься, если я живу не в Англии?", a: "Да. Уроки онлайн, поэтому заниматься можно из любой страны: Латвии, Украины, России, Испании и других. Если вы оплачиваете из России, пожалуйста, сначала напишите мне: российские карты не работают с моими способами оплаты." },
+        { q: "Вы занимаетесь с детьми?", a: "Да, с 5 лет. Уроки для детей 5–10 лет длятся 30 минут — с историями, играми и песнями, для детей от 10 лет — 40 минут. Детям постарше помогаю со школьным английским и GCSE." },
+        { q: "Ребёнок учится в британской школе. Поможете с GCSE English?", a: "Да. У меня есть опыт подготовки учеников к GCSE English Language и Literature в британской школе. Разбираем технику экзамена и ключевые темы, а вопросы всегда можно задать по-русски." },
+        { q: "Подходят ли ваши уроки нейроотличным ученикам?", a: "Да. Гибкий выбор тем, темп и структура, подстроенные под ваш мозг, поддержка при переключении внимания и безопасная среда без осуждения." },
+        { q: "Как узнать свой уровень английского?", a: "Пройдите бесплатный тест на этой странице — он займёт 3 минуты. На первом уроке мы также проверим разговор и понимание на слух и составим план." }
       ]
     },
 
@@ -292,6 +440,38 @@ window.SITE = {
       send: "Отправить результат Елене",
       again: "Пройти тест ещё раз",
       messageText: "Здравствуйте, Елена! Я прошёл(а) тест по английскому на вашем сайте. Мой результат: "
+    },
+
+    reviewsPage: {
+      metaTitle: "Отзывы · Елена Скудра, преподаватель английского",
+      title: "Отзывы учеников",
+      text: "Настоящие отзывы моих учеников: взрослых, подростков и тех, кто готовился к экзаменам.",
+      allLink: "Все отзывы →",
+      formTitle: "Оставить отзыв",
+      formText: "Занимались со мной? Буду благодарна за пару слов — это помогает другим ученикам сделать выбор.",
+      formSoon: "Форма для отзывов скоро появится. А пока можно отправить отзыв на почту:"
+    },
+
+    payment: {
+      metaTitle: "Оплата · Елена Скудра, преподаватель английского",
+      title: "Оплата",
+      text: "Оплатить уроки можно картой, через Apple Pay или Google Pay, либо банковским переводом. Цены указаны в фунтах (£).",
+      cardTitle: "Оплата картой",
+      payButton: "Оплатить",
+      noCard: "Оплата картой скоро появится. А пока, пожалуйста, оплатите переводом или напишите мне.",
+      bankTitle: "Банковский перевод",
+      labels: { holder: "Получатель", sortCode: "Sort code", account: "Номер счёта", iban: "IBAN", bic: "BIC / SWIFT", reference: "Назначение платежа" },
+      reference: "Ваше имя и дата урока",
+      bankSoon: "Реквизиты скоро появятся. Напишите мне, и я их пришлю.",
+      notesTitle: "Полезно знать",
+      notes: [
+        "Пожалуйста, оплачивайте урок заранее.",
+        "Укажите своё имя в назначении платежа, чтобы я могла найти вашу оплату.",
+        "Оплачиваете из России? Российские карты с этими способами оплаты не работают — пожалуйста, сначала напишите мне.",
+        "Есть вопросы по оплате? Напишите мне."
+      ],
+      bookTitle: "Уже оплатили?",
+      bookText: "Выберите время урока в моём календаре."
     },
 
     footer: "Преподаватель английского онлайн"
