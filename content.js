@@ -20,7 +20,7 @@ window.SITE = {
     // https://calendar.google.com/calendar/appointments/...).
     // Then the calendar shows right on the page. Any other booking link
     // works too, but then it opens in a new tab.
-    bookingLink: "",
+    bookingLink: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3Sp16wZm_WqOiXG9f0ZOCR7xzDJGzLAH9inu0ZCCm_x6QGoF-xhvA-wEDr_WNenn4WlvJqefSZ",
 
     // Contact details. Leave "" to hide one.
     email: "hello@englishwithjelena.com",
@@ -145,7 +145,7 @@ window.SITE = {
       title: "Prices",
       items: [
         { name: "Trial lesson, 30 min", price: "" },
-        { name: "Lesson, 60 min", price: "" },
+        { name: "Lesson, 50 min", price: "" },
         { name: "Package of 10 lessons", price: "" }
       ]
     },
@@ -261,7 +261,7 @@ window.SITE = {
       title: "Цены",
       items: [
         { name: "Пробный урок, 30 мин", price: "" },
-        { name: "Урок, 60 мин", price: "" },
+        { name: "Урок, 50 мин", price: "" },
         { name: "Пакет из 10 уроков", price: "" }
       ]
     },
