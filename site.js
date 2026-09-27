@@ -31,6 +31,7 @@
       var v = get(T, n.getAttribute("data-t")); if (v == null) return;
       n.innerHTML = marked(v);
     });
+    document.querySelectorAll("[data-t-alt]").forEach(function(n){ var v = get(T, n.getAttribute("data-t-alt")); if (v) n.setAttribute("alt", v); });
     document.querySelectorAll(".lang button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"); });
 
     fill("facts", T.hero.facts, function(f){ return el("li", null, esc(f)); });

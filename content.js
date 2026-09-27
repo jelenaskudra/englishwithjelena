@@ -114,6 +114,8 @@ window.SITE = {
     about: {
       title: "About me",
       note: "In England since 2010",
+      photoAlt: "Jelena Skudra at her graduation in front of the Trent Building, University of Nottingham",
+      photoCaption: "Graduation day, University of Nottingham",
       paragraphs: [
         "I moved to England in 2010 and graduated with honours from the University of Nottingham in 2020. In 2021 I gained UK state accreditation as an English teacher. In 7 years of teaching I’ve worked in schools and online, with children, teenagers and adults.",
         "My biggest advantage: I still remember what it’s like to look at a sentence and think «I’ll never be able to say it like that». But I also have years of real experience, from everyday conversation to academic study, and I can pass it on to my students.",
@@ -330,6 +332,8 @@ window.SITE = {
     about: {
       title: "О себе",
       note: "В Англии с 2010 года",
+      photoAlt: "Елена Скудра на выпускном у здания Trent Building, Ноттингемский университет",
+      photoCaption: "Выпускной, Ноттингемский университет",
       paragraphs: [
         "В 2010 году я переехала в Англию, а в 2020 с отличием окончила Ноттингемский университет. В 2021 получила британскую государственную аккредитацию преподавателя английского языка. За 7 лет преподавания работала и в школах, и онлайн — с детьми, подростками и взрослыми.",
         "Мой главный плюс — я ещё помню, каково это: смотреть на предложение и думать «да я так никогда не сформулирую». Но у меня уже много реального опыта — ежедневного общения и академического обучения, — который я могу передать ученикам.",

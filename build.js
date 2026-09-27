@@ -60,6 +60,7 @@ function jsonLd(T, lang) {
         alumniOf: { "@type": "CollegeOrUniversity", name: "University of Nottingham" },
         knowsLanguage: ["en", "ru", "uk", "lv", "es"],
         url: DOMAIN + "/",
+        image: DOMAIN + "/jelena.jpg",
         email: SITE.settings.email || undefined
       },
       { "@type": "WebSite", "@id": DOMAIN + "/#website", url: DOMAIN + "/", name: "English with Jelena", inLanguage: ["ru", "en"] },
@@ -124,6 +125,8 @@ for (const lang of langs) {
     html = html.replace(/(href|src)="(style\.css|content\.js|site\.js)"/g, '$1="$2?v=' + v + '"');
     if (lang === "en") {
       html = html
+        .replace(/srcset="jelena\.webp"/g, 'srcset="../jelena.webp"')
+        .replace(/src="jelena\.jpg"/g, 'src="../jelena.jpg"')
         .replace(/(href|src)="(style\.css|content\.js|site\.js|icon\.png)(\?v=[a-z0-9]+)?"/g, '$1="../$2$3"');
     }
     const file = path.join(OUT, lang === "en" ? "en" : "", (page.slug || "index") + ".html");
@@ -133,7 +136,7 @@ for (const lang of langs) {
 }
 
 // Static files
-for (const f of ["style.css", "content.js", "site.js", "CNAME", "og-image.png", "icon.png"]) {
+for (const f of ["style.css", "content.js", "site.js", "CNAME", "og-image.png", "icon.png", "jelena.jpg", "jelena.webp"]) {
   if (fs.existsSync(path.join(ROOT, f))) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
 }
 
