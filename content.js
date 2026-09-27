@@ -23,7 +23,7 @@ window.SITE = {
     bookingLink: "",
 
     // Contact details. Leave "" to hide one.
-    email: "hello@englishwithjelena.net",
+    email: "hello@englishwithjelena.com",
     whatsapp: "",          // e.g. "+44 7700 900123"
     telegram: "",          // username without @, e.g. "jelenaskudra"
     instagram: "",         // username without @
