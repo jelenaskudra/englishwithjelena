@@ -140,6 +140,13 @@ for (const f of ["style.css", "content.js", "site.js", "CNAME", "og-image.png", 
   if (fs.existsSync(path.join(ROOT, f))) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
 }
 
+// Search engine verification files (Google, Yandex, Bing) uploaded to the repository
+for (const f of fs.readdirSync(ROOT)) {
+  if (/^(google[0-9a-z]+\.html|yandex_[0-9a-z]+\.html|BingSiteAuth\.xml)$/i.test(f)) {
+    fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
+  }
+}
+
 // sitemap.xml and robots.txt
 const today = new Date().toISOString().slice(0, 10);
 let sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n';
