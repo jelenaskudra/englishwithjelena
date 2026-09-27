@@ -310,3 +310,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 .btn-tg{background:#2AABEE;color:#fff;box-shadow:0 3px 0 #1B86BD}
 .btn-tg:hover{transform:translateY(-1px);box-shadow:0 4px 0 #1B86BD}
+.pay-price{display:flex;flex-direction:column;align-items:flex-end;text-align:right;min-width:7.5em;line-height:1.1;flex:none}
+@media (max-width:560px){ .pay-price{min-width:0} }
+.pay-price small{margin-top:6px;white-space:nowrap}
+.offer .price{text-align:right}
